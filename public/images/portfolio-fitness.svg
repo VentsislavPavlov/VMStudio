@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset=".48" stop-color="#082f49"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="pulse" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e"/>
+      <stop offset=".55" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1080" fill="url(#bg)"/>
+  <rect x="118" y="96" width="664" height="888" rx="58" fill="#030712" opacity=".88" stroke="#67e8f9" stroke-opacity=".28"/>
+  <circle cx="450" cy="300" r="168" fill="#0f172a" stroke="#22d3ee" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M304 315h72l34-82 70 174 42-92h74" fill="none" stroke="url(#pulse)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="190" y="560" width="290" height="38" rx="19" fill="#f8fafc"/>
+  <rect x="190" y="628" width="520" height="16" rx="8" fill="#67e8f9" opacity=".55"/>
+  <rect x="190" y="668" width="390" height="16" rx="8" fill="#94a3b8" opacity=".55"/>
+  <rect x="190" y="760" width="140" height="112" rx="30" fill="#052e2b" stroke="#22c55e" stroke-opacity=".45"/>
+  <rect x="380" y="720" width="140" height="152" rx="30" fill="#082f49" stroke="#22d3ee" stroke-opacity=".45"/>
+  <rect x="570" y="790" width="140" height="82" rx="30" fill="#172554" stroke="#3b82f6" stroke-opacity=".45"/>
+  <path d="M225 828h70M415 800h70M605 830h70" stroke="#e0f2fe" stroke-width="13" stroke-linecap="round"/>
+</svg>

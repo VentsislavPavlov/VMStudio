@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ReviewStatus {
+  pending
+  approved
+  rejected
+}
+
+model ContactMessage {
+  id              String   @id @default(cuid())
+  name            String
+  email           String
+  phone           String
+  selectedService String?
+  company         String?
+  message         String
+  createdAt       DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model Review {
+  id         String       @id @default(cuid())
+  name       String
+  company    String
+  role       String
+  rating     Int
+  message    String
+  avatar     String?
+  status     ReviewStatus @default(pending)
+  createdAt  DateTime     @default(now())
+  approvedAt DateTime?
+
+  @@index([status, createdAt])
+}
