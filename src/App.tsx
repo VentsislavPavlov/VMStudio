@@ -14,7 +14,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { Pagination } from 'swiper/modules';
 import { EffectCoverflow } from 'swiper/modules';
-import { Phone } from "lucide-react";
+import {
+  BarChart3,
+  BrainCircuit,
+  CloudCog,
+  Code2,
+  Database,
+  LayoutDashboard,
+  Layers3,
+  Lightbulb,
+  Menu,
+  Rocket,
+  Phone,
+  PenTool,
+  Route,
+  SearchCheck,
+  Smartphone,
+  Sparkles,
+  TrendingUp,
+  X,
+} from "lucide-react";
 import {
   submitContactForm,
   submitReviewForm,
@@ -112,36 +131,56 @@ const services = [
   },
 ];
 
-  const projects = [
+type Project = {
+  title: string;
+  description: string;
+  img: string;
+  concept: "fitness" | "finance" | "interior" | "ecommerce" | "saas" | "restaurant";
+  accent: "purple" | "blue" | "orange" | "cyan";
+};
+
+  const projects: Project[] = [
     {
-      title: "Luxury Real Estate Platform",
-      description: "Премиум платформа за имоти с фокус върху елегантно представяне и качествени запитвания.",
-      img: "/images/portfolio-real-estate.svg",
-    },
-    {
-      title: "Restaurant Booking Experience",
-      description: "Модерна резервационна система, създадена за бързина, яснота и повече реални посещения.",
-      img: "/images/portfolio-restaurant.svg",
-    },
-    {
-      title: "Modern Fitness Brand",
-      description: "Адаптивна бранд платформа със силна визия, програми и ясни пътеки към конверсия.",
+      title: "Pulse Fitness Website",
+      description: "Тъмна fitness платформа с програми, тренировки и силен conversion flow.",
       img: "/images/portfolio-fitness.svg",
+      concept: "fitness",
+      accent: "purple",
     },
     {
-      title: "Healthcare Management Dashboard",
-      description: "Изчистен медицински dashboard, проектиран за удобство, ясни данни и мащабируемост.",
-      img: "/images/portfolio-healthcare.svg",
-    },
-    {
-      title: "E-Commerce Fashion Store",
-      description: "Полиран e-commerce интерфейс, оптимизиран за откриване на продукти и ангажираност.",
-      img: "/images/portfolio-fashion.svg",
-    },
-    {
-      title: "Finance Analytics Platform",
-      description: "SaaS интерфейс с богата аналитика, фокусирани dashboard-и и уверено вземане на решения.",
+      title: "Finova Finance Dashboard",
+      description: "Премиум dashboard за финанси, аналитика и бързо вземане на решения.",
       img: "/images/portfolio-finance.svg",
+      concept: "finance",
+      accent: "blue",
+    },
+    {
+      title: "Atelier Interior Studio",
+      description: "Минимален interior сайт с editorial визия и премиум проектни галерии.",
+      img: "/images/portfolio-real-estate.svg",
+      concept: "interior",
+      accent: "orange",
+    },
+    {
+      title: "Maison E-Commerce Store",
+      description: "Модерен онлайн магазин с продуктови колекции и плавен shopping experience.",
+      img: "/images/portfolio-fashion.svg",
+      concept: "ecommerce",
+      accent: "cyan",
+    },
+    {
+      title: "Nova SaaS Dashboard",
+      description: "SaaS интерфейс с workspace, cards, metrics и изчистена продуктова навигация.",
+      img: "/images/portfolio-healthcare.svg",
+      concept: "saas",
+      accent: "blue",
+    },
+    {
+      title: "Lume Restaurant Website",
+      description: "Елегантен ресторантски сайт с меню, резервации и атмосфера на бранда.",
+      img: "/images/portfolio-restaurant.svg",
+      concept: "restaurant",
+      accent: "orange",
     },
   ];
 
@@ -160,6 +199,36 @@ type ApprovedReview = {
   message: string;
   avatar?: string | null;
 };
+
+const sampleReviews: ApprovedReview[] = [
+  {
+    id: "sample-1",
+    name: "Мария Николова",
+    company: "Niko Home Studio",
+    role: "Founder",
+    rating: 5,
+    message:
+      "VM Studio създадоха сайт, който изглежда премиум и работи изключително бързо. Процесът беше ясен, организиран и много професионален.",
+  },
+  {
+    id: "sample-2",
+    name: "Георги Димитров",
+    company: "Delta Consult",
+    role: "Marketing Director",
+    rating: 5,
+    message:
+      "Получихме модерна дигитална визия и по-добра структура за представяне на услугите ни. Екипът мисли едновременно за дизайн, скорост и реални бизнес резултати.",
+  },
+  {
+    id: "sample-3",
+    name: "Елена Петрова",
+    company: "Active Zone",
+    role: "Brand Manager",
+    rating: 5,
+    message:
+      "Работата с VM Studio беше много гладка. Новата ни онлайн визия изглежда силна, ясна и напълно съобразена с аудиторията ни.",
+  },
+];
 
 type TeamCardProps = {
   member: TeamMember;
@@ -320,13 +389,12 @@ const TeamCard = ({ member, variants, prefersReducedMotion }: TeamCardProps) => 
           initial={false}
           animate={{
             scale: isHovering && !prefersReducedMotion ? 1.13 : 1,
-            clipPath: isHovering && !prefersReducedMotion ? "inset(0% round 18px)" : "inset(4% round 18px)",
           }}
           transition={{ type: "spring", stiffness: 180, damping: 18 }}
           style={{
             x: prefersReducedMotion || !isHoverable ? 0 : iconX,
             y: prefersReducedMotion || !isHoverable ? 0 : iconY,
-            willChange: "transform, clip-path",
+            willChange: "transform",
           }}
         >
           {member.icon}
@@ -338,16 +406,185 @@ const TeamCard = ({ member, variants, prefersReducedMotion }: TeamCardProps) => 
   );
 };
 
-type Project = {
-  title: string;
-  description: string;
-  img: string;
-};
-
 type PortfolioCardProps = {
   project: Project;
   isActive: boolean;
   prefersReducedMotion: boolean | null;
+};
+
+const accentStyles = {
+  purple: {
+    ring: "border-fuchsia-400/70 shadow-[0_0_42px_rgba(217,70,239,0.36)]",
+    glow: "from-fuchsia-500/50 via-violet-500/24 to-cyan-400/12",
+    button: "from-fuchsia-500 to-violet-500",
+    text: "text-fuchsia-200",
+  },
+  blue: {
+    ring: "border-blue-300/80 shadow-[0_0_48px_rgba(59,130,246,0.42)]",
+    glow: "from-blue-500/48 via-cyan-400/24 to-violet-500/12",
+    button: "from-blue-500 to-cyan-400",
+    text: "text-blue-200",
+  },
+  orange: {
+    ring: "border-amber-300/80 shadow-[0_0_46px_rgba(245,158,11,0.38)]",
+    glow: "from-amber-400/48 via-orange-500/24 to-cyan-400/10",
+    button: "from-amber-400 to-orange-500",
+    text: "text-amber-100",
+  },
+  cyan: {
+    ring: "border-cyan-300/80 shadow-[0_0_46px_rgba(34,211,238,0.38)]",
+    glow: "from-cyan-400/48 via-blue-500/22 to-fuchsia-500/10",
+    button: "from-cyan-400 to-blue-500",
+    text: "text-cyan-100",
+  },
+};
+
+const PortfolioMockup = ({ project }: { project: Project }) => {
+  const accent = accentStyles[project.accent];
+
+  const navItems = {
+    fitness: ["Home", "Programs", "Coaches"],
+    finance: ["Home", "Features", "Pricing"],
+    interior: ["Home", "Projects", "Studio"],
+    ecommerce: ["Shop", "Drops", "Journal"],
+    saas: ["Overview", "Tasks", "Reports"],
+    restaurant: ["Menu", "Booking", "Events"],
+  }[project.concept];
+
+  return (
+    <div className={`absolute inset-4 overflow-hidden rounded-2xl border bg-[#050914]/92 backdrop-blur-sm ${accent.ring}`}>
+      <div className={`absolute -inset-16 bg-gradient-to-br ${accent.glow} blur-3xl opacity-70`} />
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="flex h-10 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
+          <div className="flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-fuchsia-300/80" />
+            <span className="h-2 w-2 rounded-full bg-cyan-300/80" />
+            <span className="h-2 w-2 rounded-full bg-white/35" />
+          </div>
+          <div className="hidden items-center gap-4 text-[8px] uppercase tracking-[0.18em] text-white/55 sm:flex">
+            {navItems.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </div>
+
+        {project.concept === "fitness" ? (
+          <div className="grid flex-1 grid-rows-[1fr_auto] p-5">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-black via-violet-950/70 to-black p-5">
+              <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.28),transparent_62%)]" />
+              <p className="relative z-10 text-[10px] uppercase tracking-[0.26em] text-fuchsia-200">Strength lab</p>
+              <h3 className="relative z-10 mt-8 max-w-[11rem] text-3xl font-black leading-none text-white">
+                TRAIN WITHOUT LIMITS
+              </h3>
+              <button className={`relative z-10 mt-6 rounded-md bg-gradient-to-r ${accent.button} px-4 py-2 text-[10px] font-bold text-white`}>
+                Get started
+              </button>
+            </div>
+            <div className="mt-4 grid grid-cols-3 gap-3">
+              {["Strength", "Cardio", "Yoga"].map((item) => (
+                <div key={item} className="rounded-xl border border-white/10 bg-white/[0.06] p-3 text-center text-[9px] uppercase tracking-wider text-white/70">
+                  <div className="mb-2 h-10 rounded-lg bg-fuchsia-300/15" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {project.concept === "finance" ? (
+          <div className="grid flex-1 grid-cols-[1fr_0.85fr] gap-4 p-5">
+            <div className="flex flex-col justify-center">
+              <p className="text-[10px] uppercase tracking-[0.24em] text-blue-200">Finova</p>
+              <h3 className="mt-5 text-3xl font-black leading-tight text-white">
+                Smart finance for <span className="text-blue-400">modern business</span>
+              </h3>
+              <button className={`mt-6 w-max rounded-md bg-gradient-to-r ${accent.button} px-4 py-2 text-[10px] font-bold text-white`}>
+                Get started free
+              </button>
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="rounded-2xl border border-blue-300/20 bg-black/35 p-4">
+                <p className="text-xs text-white/70">$24,780</p>
+                <svg viewBox="0 0 120 60" className="mt-3 h-16 w-full text-blue-400">
+                  <path d="M4 48 22 34 38 42 55 18 72 31 91 12 116 20" fill="none" stroke="currentColor" strokeWidth="4" />
+                </svg>
+              </div>
+              <div className="rounded-2xl border border-cyan-300/20 bg-white/[0.04] p-4 text-lg font-bold text-white">+18.2%</div>
+            </div>
+          </div>
+        ) : null}
+
+        {project.concept === "interior" ? (
+          <div className="grid flex-1 grid-cols-[1fr_0.9fr] bg-neutral-100 text-black">
+            <div className="flex flex-col justify-center p-7">
+              <p className="text-[9px] uppercase tracking-[0.24em] text-black/45">Atelier</p>
+              <h3 className="mt-7 font-serif text-3xl leading-none">Timeless interior design</h3>
+              <p className="mt-4 text-xs text-black/55">Spaces that inspire refined living.</p>
+              <button className="mt-6 w-max rounded-full bg-black px-4 py-2 text-[9px] uppercase text-white">View projects</button>
+            </div>
+            <div className="m-4 rounded-2xl bg-gradient-to-br from-stone-200 via-white to-stone-300 shadow-inner" />
+          </div>
+        ) : null}
+
+        {project.concept === "ecommerce" ? (
+          <div className="flex flex-1 flex-col p-5">
+            <div className="rounded-2xl border border-cyan-200/20 bg-white/[0.05] p-5">
+              <p className="text-[10px] uppercase tracking-[0.22em] text-cyan-100">Maison drop</p>
+              <h3 className="mt-4 text-2xl font-black text-white">New season essentials</h3>
+              <div className="mt-5 grid grid-cols-3 gap-3">
+                {[1, 2, 3].map((item) => (
+                  <div key={item} className="h-24 rounded-xl bg-gradient-to-br from-cyan-300/18 to-blue-500/10" />
+                ))}
+              </div>
+            </div>
+            <div className="mt-4 flex gap-3">
+              <span className="h-12 flex-1 rounded-xl bg-white/[0.06]" />
+              <span className="h-12 flex-1 rounded-xl bg-cyan-300/15" />
+            </div>
+          </div>
+        ) : null}
+
+        {project.concept === "saas" ? (
+          <div className="grid flex-1 grid-cols-[0.38fr_1fr] gap-4 p-5">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+              {[1, 2, 3, 4].map((item) => (
+                <span key={item} className="mb-3 block h-3 rounded-full bg-blue-300/20" />
+              ))}
+            </div>
+            <div className="grid grid-rows-[0.55fr_1fr] gap-4">
+              <div className="rounded-2xl border border-blue-300/20 bg-blue-400/10 p-4 text-white">
+                <p className="text-xs text-white/60">Workspace score</p>
+                <strong className="text-3xl">94%</strong>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[1, 2, 3, 4].map((item) => (
+                  <span key={item} className="rounded-xl bg-white/[0.06]" />
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {project.concept === "restaurant" ? (
+          <div className="grid flex-1 grid-cols-[1fr_0.85fr] gap-4 p-5">
+            <div className="flex flex-col justify-center">
+              <p className="text-[10px] uppercase tracking-[0.24em] text-amber-100">Lume dining</p>
+              <h3 className="mt-5 text-3xl font-black leading-tight text-white">Reserve the evening</h3>
+              <p className="mt-4 text-xs text-white/60">Seasonal tasting menu and private events.</p>
+              <button className={`mt-6 w-max rounded-full bg-gradient-to-r ${accent.button} px-4 py-2 text-[10px] font-bold text-black`}>
+                Book table
+              </button>
+            </div>
+            <div className="grid gap-3">
+              <span className="rounded-2xl bg-amber-300/15" />
+              <span className="rounded-2xl bg-orange-400/15" />
+              <span className="rounded-2xl bg-white/[0.06]" />
+            </div>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
 };
 
 const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCardProps) => {
@@ -433,7 +670,7 @@ const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCar
   return (
     <motion.div
       ref={cardRef}
-      className="relative h-full w-full overflow-hidden rounded-3xl bg-gray-950"
+      className="relative h-full w-full overflow-hidden rounded-3xl bg-[#030712]"
       onPointerEnter={() => {
         if (!prefersReducedMotion && isHoverable) {
           setIsHovering(true);
@@ -478,8 +715,8 @@ const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCar
         <motion.img
           src={project.img}
           alt={project.title}
-          className="h-full w-full object-cover"
-          animate={{ scale: isHovering && !prefersReducedMotion ? 1.1 : 1 }}
+          className="h-full w-full object-cover opacity-45"
+          animate={{ scale: isHovering && !prefersReducedMotion ? 1.08 : 1 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           style={{
             x: prefersReducedMotion || !isHoverable ? 0 : imageX,
@@ -489,53 +726,79 @@ const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCar
         />
       </motion.div>
       <motion.div
-        className="absolute -inset-20 rounded-full bg-[radial-gradient(circle,rgba(0,255,255,0.28),rgba(59,130,246,0.16)_32%,transparent_68%)] blur-2xl pointer-events-none"
-        style={{ x: glowX, y: glowY }}
-        animate={{ opacity: isHovering && !prefersReducedMotion ? 1 : 0 }}
-        transition={{ duration: 0.28, ease: "easeOut" }}
-      />
-      <div className="absolute inset-0 bg-black/50 transition-opacity duration-500 group-hover:opacity-0" />
+        className="absolute inset-0 z-[2]"
+        animate={{
+          scale: isHovering && !prefersReducedMotion ? 1.025 : 1,
+        }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          x: prefersReducedMotion || !isHoverable ? 0 : imageX,
+          y: prefersReducedMotion || !isHoverable ? 0 : imageY,
+          willChange: "transform",
+        }}
+      >
+        <PortfolioMockup project={project} />
+      </motion.div>
       <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"
-        animate={{ opacity: isHovering && !prefersReducedMotion ? 1 : 0.72 }}
+        className="absolute -inset-20 z-[3] rounded-full bg-[radial-gradient(circle,rgba(0,255,255,0.28),rgba(59,130,246,0.16)_30%,rgba(168,85,247,0.1)_46%,transparent_70%)] blur-2xl pointer-events-none"
+        style={{ x: glowX, y: glowY }}
+        animate={{ opacity: isHovering && !prefersReducedMotion ? 1 : 0.38 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
       />
       <motion.div
-        className="absolute inset-0 rounded-3xl border border-cyan-300/40 pointer-events-none"
+        className="absolute inset-0 z-[4] pointer-events-none"
         animate={{
-          opacity: isHovering && !prefersReducedMotion ? 1 : 0.42,
+          opacity: isHovering && !prefersReducedMotion ? 0.92 : 0.62,
+        }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(34,211,238,0.16)_38%,rgba(59,130,246,0.08)_52%,transparent_68%)] opacity-80" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0 z-[6] rounded-3xl border border-cyan-300/40 pointer-events-none"
+        animate={{
+          opacity: isHovering && !prefersReducedMotion ? 1 : 0.5,
           boxShadow:
             isHovering && !prefersReducedMotion
-              ? "inset 0 0 28px rgba(0,255,255,0.18)"
-              : "inset 0 0 0 rgba(0,255,255,0)",
+              ? "inset 0 0 34px rgba(0,255,255,0.18), 0 0 36px rgba(59,130,246,0.2)"
+              : "inset 0 0 10px rgba(0,255,255,0.08)",
         }}
         transition={{ duration: 0.32, ease: "easeOut" }}
       />
       <motion.div
-        className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center justify-end px-5 pb-9 text-center"
+        className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start justify-end px-5 pb-7 text-left sm:px-7 sm:pb-8"
         initial={false}
         animate={{ y: isHovering && !prefersReducedMotion ? -8 : 0 }}
         transition={{ type: "spring", stiffness: 190, damping: 20 }}
         style={{ transform: "translateZ(44px)" }}
       >
+        <motion.div
+          className="max-w-[92%]"
+          initial={false}
+          animate={{
+            opacity: 1,
+            y: isHovering && !prefersReducedMotion ? -2 : 0,
+          }}
+          transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.9)] md:text-3xl">
+            {project.title}
+          </h3>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/82 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] md:text-[0.95rem]">
+            {project.description}
+          </p>
+        </motion.div>
         <motion.span
-          className="mb-5 text-white text-3xl font-extrabold tracking-widest drop-shadow-lg"
-          animate={{ opacity: isHovering && !prefersReducedMotion ? 0 : 1, y: isHovering ? -10 : 0 }}
+          className="mt-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-cyan-100/78 drop-shadow-[0_0_12px_rgba(0,255,255,0.55)]"
+          animate={{
+            opacity: isHovering && !prefersReducedMotion ? 0.95 : 0.78,
+            y: isHovering && !prefersReducedMotion ? -1 : 0,
+          }}
           transition={{ duration: 0.28, ease: "easeOut" }}
         >
           Очаквайте скоро
         </motion.span>
-        <motion.div
-          initial={false}
-          animate={{
-            opacity: isHovering && !prefersReducedMotion ? 1 : 0,
-            y: isHovering && !prefersReducedMotion ? 0 : 16,
-          }}
-          transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h3 className="text-white text-2xl font-bold mb-2 drop-shadow-md">{project.title}</h3>
-          <p className="text-gray-300 text-sm drop-shadow-md">{project.description}</p>
-        </motion.div>
       </motion.div>
     </motion.div>
   );
@@ -552,6 +815,8 @@ const PremiumSectionTitle = ({
 }) => {
   const prefersReducedMotion = useReducedMotion();
   const [hasRevealed, setHasRevealed] = useState(Boolean(prefersReducedMotion));
+  const [isCompactViewport, setIsCompactViewport] = useState(false);
+  const titleRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -559,19 +824,87 @@ const PremiumSectionTitle = ({
     }
   }, [prefersReducedMotion]);
 
-  const titleRevealVariants = {
+  useEffect(() => {
+    const compactQuery = window.matchMedia("(max-width: 767px)");
+    const updateViewport = () => setIsCompactViewport(compactQuery.matches);
+
+    updateViewport();
+    compactQuery.addEventListener("change", updateViewport);
+
+    return () => compactQuery.removeEventListener("change", updateViewport);
+  }, []);
+
+  useEffect(() => {
+    if (hasRevealed || prefersReducedMotion) return;
+
+    const element = titleRef.current;
+    if (!element || !("IntersectionObserver" in window)) {
+      setHasRevealed(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setHasRevealed(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: isCompactViewport ? 0.18 : 0.35,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [hasRevealed, isCompactViewport, prefersReducedMotion]);
+
+  const titleWords = typeof children === "string" ? children.split(" ") : null;
+
+  const titleMaskVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: prefersReducedMotion ? 0 : isCompactViewport ? 0.045 : 0.06,
+        delayChildren: prefersReducedMotion ? 0 : 0.04,
+      },
+    },
+  };
+
+  const titleWordVariants = {
     hidden: {
-      y: prefersReducedMotion ? 0 : "115%",
+      y: prefersReducedMotion ? 0 : "112%",
       opacity: prefersReducedMotion ? 1 : 0,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(10px)",
+      filter: prefersReducedMotion ? "blur(0px)" : isCompactViewport ? "blur(6px)" : "blur(8px)",
     },
     visible: {
       y: "0%",
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.85,
-        ease: [0.16, 1, 0.3, 1],
+        duration: prefersReducedMotion ? 0 : isCompactViewport ? 0.66 : 0.78,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+  };
+
+  const titleFallbackVariants = {
+    hidden: {
+      y: prefersReducedMotion ? 0 : "112%",
+      opacity: prefersReducedMotion ? 1 : 0,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(8px)",
+      clipPath: prefersReducedMotion ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
+    },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      filter: "blur(0px)",
+      clipPath: "inset(0% 0% 0% 0%)",
+      transition: {
+        duration: prefersReducedMotion ? 0 : isCompactViewport ? 0.68 : 0.82,
+        ease: [0.19, 1, 0.22, 1],
       },
     },
   };
@@ -580,34 +913,53 @@ const PremiumSectionTitle = ({
     hidden: {
       scaleX: prefersReducedMotion ? 1 : 0,
       opacity: prefersReducedMotion ? 1 : 0,
+      filter: prefersReducedMotion ? "blur(0px)" : "blur(8px)",
     },
     visible: {
       scaleX: 1,
       opacity: 1,
+      filter: "blur(0px)",
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.72,
+        duration: prefersReducedMotion ? 0 : isCompactViewport ? 0.52 : 0.68,
         ease: [0.22, 1, 0.36, 1],
-        delay: prefersReducedMotion ? 0 : 0.18,
+        delay: prefersReducedMotion ? 0 : isCompactViewport ? 0.28 : 0.36,
       },
     },
   };
 
   return (
     <motion.div
+      ref={titleRef}
       initial="hidden"
       animate={hasRevealed ? "visible" : "hidden"}
-      onViewportEnter={() => setHasRevealed(true)}
-      viewport={{ once: true, amount: 0.45 }}
       className={`relative text-center ${className}`}
     >
-      <div className="overflow-hidden pb-2">
-        <motion.h2
-          variants={titleRevealVariants}
-          className={`${headingClassName} font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_#00ffff]`}
-        >
-          {children}
-        </motion.h2>
-      </div>
+      <motion.h2
+        variants={titleMaskVariants}
+        className={`${headingClassName} flex flex-wrap justify-center gap-x-3 gap-y-1 overflow-hidden pb-2 font-bold leading-tight drop-shadow-[0_0_15px_#00ffff]`}
+      >
+        {titleWords ? (
+          titleWords.map((word, index) => (
+            <span key={`${word}-${index}`} className="inline-block overflow-hidden pb-1">
+              <motion.span
+                variants={titleWordVariants}
+                className="inline-block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent will-change-transform"
+              >
+                {word}
+              </motion.span>
+            </span>
+          ))
+        ) : (
+          <span className="inline-block overflow-hidden pb-1">
+            <motion.span
+              variants={titleFallbackVariants}
+              className="inline-block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent will-change-transform"
+            >
+              {children}
+            </motion.span>
+          </span>
+        )}
+      </motion.h2>
       <motion.div
         variants={titleAccentVariants}
         className="mx-auto mt-3 h-px w-28 origin-center bg-gradient-to-r from-transparent via-cyan-300 to-transparent shadow-[0_0_16px_rgba(0,255,255,0.65)]"
@@ -626,6 +978,7 @@ const App = () => {
     ok: false,
     message: "",
   });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [reviewState, setReviewState] = useState<FormActionState>({
     ok: false,
     message: "",
@@ -634,12 +987,32 @@ const App = () => {
   const [isReviewPending, startReviewTransition] = useTransition();
   const touchStartY = useRef<number | null>(null);
   const heroTransitioning = useRef(false);
+  const pendingIntroScroll = useRef(0);
+  const portfolioSwiperRef = useRef<any>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+
+  useEffect(() => {
+    document.body.style.removeProperty("overflow");
+    document.documentElement.style.removeProperty("overflow");
+    document.body.style.removeProperty("position");
+    document.documentElement.style.removeProperty("position");
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const updateViewport = () => setIsMobileViewport(mobileQuery.matches);
+
+    updateViewport();
+    mobileQuery.addEventListener("change", updateViewport);
+
+    return () => mobileQuery.removeEventListener("change", updateViewport);
   }, []);
 
   useEffect(() => {
@@ -726,22 +1099,21 @@ const App = () => {
   }, [prefersReducedMotion]);
 
   useEffect(() => {
-    if (introComplete) {
-      document.body.style.overflow = "";
-      return;
-    }
+    if (!showMain || introComplete) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const fallbackTimer = window.setTimeout(() => {
+      setIntroComplete(true);
+      document.body.style.removeProperty("overflow");
+      document.documentElement.style.removeProperty("overflow");
+    }, prefersReducedMotion ? 0 : 1400);
 
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [introComplete]);
+    return () => window.clearTimeout(fallbackTimer);
+  }, [introComplete, prefersReducedMotion, showMain]);
 
-  const revealMain = () => {
+  const revealMain = (scrollIntent = 0) => {
     if (heroTransitioning.current) return;
     heroTransitioning.current = true;
+    pendingIntroScroll.current = scrollIntent;
     setShowMain(true);
     if (prefersReducedMotion) {
       setIntroComplete(true);
@@ -771,8 +1143,8 @@ const App = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.14,
-        delayChildren: prefersReducedMotion ? 0 : 0.14,
+        staggerChildren: prefersReducedMotion ? 0 : isMobileViewport ? 0.11 : 0.14,
+        delayChildren: prefersReducedMotion ? 0 : isMobileViewport ? 0.08 : 0.14,
       },
     },
   };
@@ -780,11 +1152,15 @@ const App = () => {
   const teamCardVariants = {
     hidden: {
       opacity: prefersReducedMotion ? 1 : 0,
-      y: prefersReducedMotion ? 0 : 46,
-      scale: prefersReducedMotion ? 1 : 0.92,
-      rotateX: prefersReducedMotion ? 0 : 8,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(14px)",
-      clipPath: prefersReducedMotion ? "inset(0% round 16px)" : "inset(10% 0% 12% round 16px)",
+      y: prefersReducedMotion ? 0 : isMobileViewport ? 38 : 46,
+      scale: prefersReducedMotion ? 1 : isMobileViewport ? 0.96 : 0.92,
+      rotateX: prefersReducedMotion || isMobileViewport ? 0 : 8,
+      filter: prefersReducedMotion ? "blur(0px)" : isMobileViewport ? "blur(10px)" : "blur(14px)",
+      clipPath: prefersReducedMotion
+        ? "inset(0% round 16px)"
+        : isMobileViewport
+          ? "inset(8% 0% 8% round 16px)"
+          : "inset(10% 0% 12% round 16px)",
     },
     visible: {
       opacity: 1,
@@ -821,15 +1197,17 @@ const App = () => {
   const portfolioRevealVariants = {
     hidden: {
       opacity: prefersReducedMotion ? 1 : 0,
-      y: prefersReducedMotion ? 0 : 34,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(10px)",
+      y: prefersReducedMotion ? 0 : isMobileViewport ? 42 : 34,
+      scale: prefersReducedMotion ? 1 : isMobileViewport ? 0.98 : 1,
+      filter: prefersReducedMotion ? "blur(0px)" : isMobileViewport ? "blur(12px)" : "blur(10px)",
     },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       filter: "blur(0px)",
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.85,
+        duration: prefersReducedMotion ? 0 : isMobileViewport ? 0.78 : 0.85,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -838,15 +1216,17 @@ const App = () => {
   const testimonialsRevealVariants = {
     hidden: {
       opacity: prefersReducedMotion ? 1 : 0,
-      y: prefersReducedMotion ? 0 : 28,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(8px)",
+      y: prefersReducedMotion ? 0 : isMobileViewport ? 36 : 28,
+      scale: prefersReducedMotion ? 1 : isMobileViewport ? 0.98 : 1,
+      filter: prefersReducedMotion ? "blur(0px)" : isMobileViewport ? "blur(10px)" : "blur(8px)",
     },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       filter: "blur(0px)",
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.75,
+        duration: prefersReducedMotion ? 0 : isMobileViewport ? 0.72 : 0.75,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -856,8 +1236,8 @@ const App = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.1,
-        delayChildren: prefersReducedMotion ? 0 : 0.12,
+        staggerChildren: prefersReducedMotion ? 0 : isMobileViewport ? 0.13 : 0.1,
+        delayChildren: prefersReducedMotion ? 0 : isMobileViewport ? 0.08 : 0.12,
       },
     },
   };
@@ -865,15 +1245,17 @@ const App = () => {
   const sectionRevealVariants = {
     hidden: {
       opacity: prefersReducedMotion ? 1 : 0,
-      y: prefersReducedMotion ? 0 : 30,
-      filter: prefersReducedMotion ? "blur(0px)" : "blur(8px)",
+      y: prefersReducedMotion ? 0 : isMobileViewport ? 38 : 30,
+      scale: prefersReducedMotion ? 1 : isMobileViewport ? 0.985 : 1,
+      filter: prefersReducedMotion ? "blur(0px)" : isMobileViewport ? "blur(10px)" : "blur(8px)",
     },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       filter: "blur(0px)",
       transition: {
-        duration: prefersReducedMotion ? 0 : 0.72,
+        duration: prefersReducedMotion ? 0 : isMobileViewport ? 0.68 : 0.72,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -883,8 +1265,8 @@ const App = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.09,
-        delayChildren: prefersReducedMotion ? 0 : 0.08,
+        staggerChildren: prefersReducedMotion ? 0 : isMobileViewport ? 0.12 : 0.09,
+        delayChildren: prefersReducedMotion ? 0 : isMobileViewport ? 0.1 : 0.08,
       },
     },
   };
@@ -892,6 +1274,7 @@ const App = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
+      setIsMobileMenuOpen(false);
       section.scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -899,15 +1282,17 @@ const App = () => {
     }
   };
 
+  const displayedReviews = approvedReviews.length > 0 ? approvedReviews : sampleReviews;
+
 
   return (
-    <div className={`relative w-full min-h-screen bg-black ${introComplete ? "" : "overflow-hidden"}`}>
+    <div className="relative w-full min-h-screen bg-black">
       {/* HERO SECTION */}
       <AnimatePresence>
         {!introComplete && (
           <motion.section
             key="hero"
-            className="fixed inset-0 z-[80] w-full h-screen overflow-hidden bg-black"
+            className={`fixed inset-0 z-[80] w-full h-screen overflow-hidden bg-black ${showMain ? "pointer-events-none" : ""}`}
             initial={{ y: "0%", opacity: 1, scale: 1 }}
             animate={{
               y: showMain ? "-100%" : "0%",
@@ -922,23 +1307,39 @@ const App = () => {
             onAnimationComplete={() => {
               if (showMain) {
                 setIntroComplete(true);
-                window.scrollTo({ top: 0, left: 0 });
+                document.body.style.removeProperty("overflow");
+                document.documentElement.style.removeProperty("overflow");
+
+                if (pendingIntroScroll.current > 0) {
+                  window.requestAnimationFrame(() => {
+                    window.scrollBy({
+                      top: Math.min(Math.max(pendingIntroScroll.current, 80), 180),
+                      left: 0,
+                      behavior: "smooth",
+                    });
+                    pendingIntroScroll.current = 0;
+                  });
+                }
               }
             }}
             onWheel={(event) => {
+              if (showMain) return;
               if (event.deltaY > 0) {
                 event.preventDefault();
-                revealMain();
+                revealMain(event.deltaY);
               }
             }}
             onTouchStart={(event) => {
+              if (showMain) return;
               touchStartY.current = event.touches[0]?.clientY ?? null;
             }}
             onTouchEnd={(event) => {
+              if (showMain) return;
               if (touchStartY.current === null) return;
               const touchEndY = event.changedTouches[0]?.clientY ?? touchStartY.current;
-              if (touchStartY.current - touchEndY > 20) {
-                revealMain();
+              const touchDelta = touchStartY.current - touchEndY;
+              if (touchDelta > 20) {
+                revealMain(touchDelta);
               }
               touchStartY.current = null;
             }}
@@ -951,10 +1352,19 @@ const App = () => {
               muted
               playsInline
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08),transparent_52%)]"></div>
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 -mt-10">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 flex flex-wrap justify-center gap-4">
+              <motion.img
+                src="/images/vm-studio-logo-transparent.png"
+                alt="VM Studio"
+                className="mb-7 h-auto w-32 sm:w-40 md:w-48 object-contain drop-shadow-[0_0_18px_rgba(0,255,255,0.38)]"
+                initial={{ opacity: 0, y: 18, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.18, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+              />
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 sm:mb-6 flex flex-wrap justify-center gap-2 sm:gap-4 leading-tight">
                 {headlineWords.map((word, index) => (
                   <motion.span
                     key={index}
@@ -973,7 +1383,7 @@ const App = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: headlineWords.length * 0.3, duration: 0.8 }}
-                className="text-xl md:text-2xl text-white mb-8 max-w-2xl"
+                className="text-base sm:text-xl md:text-2xl text-white mb-8 max-w-2xl"
               >
                 Професионални решения за онлайн маркетинг и дигитален растеж за вашия бизнес.
               </motion.p>
@@ -998,31 +1408,75 @@ const App = () => {
               </div>
             </div>
 
-            <motion.div
-              className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center cursor-pointer"
-              animate={{ y: [-10, 0] }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: 1.5,
-                ease: "easeInOut",
-              }}
-              onClick={revealMain}
-            >
-              <div className="w-14 h-14 rounded-full border-2 border-cyan-400 opacity-90 shadow-[0_0_20px_rgba(0,255,255,0.7)] flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="#00ffff"
-                  className="w-7 h-7"
+            <div className="absolute inset-x-0 bottom-8 md:bottom-16 z-20 flex justify-center">
+              <motion.button
+                type="button"
+                className="flex w-32 flex-col items-center justify-center text-center cursor-pointer"
+                animate={prefersReducedMotion ? {} : { y: [-4, 0, -4] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2.4,
+                  ease: "easeInOut",
+                }}
+                onClick={() => revealMain()}
+                aria-label="Продължи към сайта"
+              >
+                <motion.span
+                  className="block w-full bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-center text-transparent tracking-[0.16em] text-base font-semibold uppercase leading-none drop-shadow-[0_0_12px_rgba(0,255,255,0.85)]"
+                  animate={
+                    prefersReducedMotion
+                      ? {}
+                      : {
+                          opacity: [0.82, 1, 0.82],
+                          textShadow: [
+                            "0 0 10px rgba(0,255,255,0.62)",
+                            "0 0 18px rgba(0,255,255,0.82), 0 0 24px rgba(59,130,246,0.42)",
+                            "0 0 10px rgba(0,255,255,0.62)",
+                          ],
+                        }
+                  }
+                  transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-6-6m6 6l6-6" />
-                </svg>
-              </div>
-              <span className="text-cyan-400 mt-2 opacity-80 tracking-widest text-sm uppercase">Продължи</span>
-            </motion.div>
+                  Продължи
+                </motion.span>
+                <span className="relative mx-auto mt-3.5 mb-2.5 block h-16 w-px overflow-hidden bg-gradient-to-b from-cyan-400 via-sky-400 to-blue-500 shadow-[0_0_12px_rgba(0,255,255,0.82),0_0_20px_rgba(59,130,246,0.45)]">
+                  <motion.span
+                    className="absolute left-1/2 top-0 block h-5 w-px -translate-x-1/2 bg-cyan-100 shadow-[0_0_14px_rgba(0,255,255,0.9)]"
+                    animate={prefersReducedMotion ? {} : { y: [-22, 58] }}
+                    transition={{ repeat: Infinity, duration: 1.7, ease: "easeInOut" }}
+                  />
+                </span>
+                <motion.span
+                  className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400 bg-black/25 shadow-[0_0_18px_rgba(0,255,255,0.82),0_0_30px_rgba(59,130,246,0.5),inset_0_0_14px_rgba(0,255,255,0.28)] backdrop-blur-sm"
+                  animate={
+                    prefersReducedMotion
+                      ? {}
+                      : {
+                          scale: [1, 1.06, 1],
+                          boxShadow: [
+                            "0 0 18px rgba(0,255,255,0.72), 0 0 26px rgba(59,130,246,0.38), inset 0 0 12px rgba(0,255,255,0.24)",
+                            "0 0 26px rgba(0,255,255,0.9), 0 0 42px rgba(59,130,246,0.58), inset 0 0 18px rgba(0,255,255,0.36)",
+                            "0 0 18px rgba(0,255,255,0.72), 0 0 26px rgba(59,130,246,0.38), inset 0 0 12px rgba(0,255,255,0.24)",
+                          ],
+                        }
+                  }
+                  transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+                >
+                  <motion.svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.8}
+                    stroke="currentColor"
+                    className="h-7 w-7 text-cyan-50 drop-shadow-[0_0_8px_rgba(0,255,255,0.9)]"
+                    animate={prefersReducedMotion ? {} : { y: [0, 3, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.35, ease: "easeInOut" }}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m0 0l-6-6m6 6l6-6" />
+                  </motion.svg>
+                </motion.span>
+              </motion.button>
+            </div>
           </motion.section>
         )}
       </AnimatePresence>
@@ -1040,15 +1494,19 @@ const App = () => {
                 initial={{ y: -120 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="mx-auto max-w-7xl flex justify-between items-center px-6 py-4 bg-black/20 backdrop-blur-md relative"
+                className="mx-auto max-w-7xl flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 bg-black/20 backdrop-blur-md relative"
               >
                 <motion.div
                   initial={{ opacity: 0, x: -40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_#00ffff] cursor-pointer"
+                  className="flex items-center cursor-pointer"
                 >
-                  VM Studio
+                  <img
+                    src="/images/vm-studio-logo-transparent.png"
+                    alt="VM Studio"
+                    className="h-12 w-auto sm:h-14 object-contain drop-shadow-[0_0_14px_rgba(0,255,255,0.28)]"
+                  />
                 </motion.div>
 
                 <ul className="hidden lg:flex gap-10 text-lg font-medium">
@@ -1073,21 +1531,59 @@ const App = () => {
                   ))}
                 </ul>
 
-                <motion.a
-                  href="tel:+359000000000"
-                  aria-label="Свържете се по телефон"
-                  className="group ml-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/60 px-3.5 py-2 text-sm font-semibold text-cyan-100 bg-black/30 shadow-[0_0_18px_rgba(0,255,255,0.22)] backdrop-blur-md transition-colors hover:text-white"
-                  whileHover={{
-                    scale: 1.04,
-                    boxShadow: "0 0 28px rgba(0,255,255,0.38)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-400/10 ring-1 ring-cyan-300/40 transition-colors group-hover:bg-cyan-300/20 group-hover:ring-cyan-200/70">
-                    <Phone className="h-3.5 w-3.5" strokeWidth={2.2} />
-                  </span>
-                  <span className="hidden sm:inline">Свържете се</span>
-                </motion.a>
+                <div className="ml-3 flex items-center gap-2">
+                  <motion.a
+                    href="tel:+359000000000"
+                    aria-label="Свържете се по телефон"
+                    className="group inline-flex items-center gap-2 rounded-full border border-cyan-400/60 px-2.5 sm:px-3.5 py-2 text-sm font-semibold text-cyan-100 bg-black/30 shadow-[0_0_18px_rgba(0,255,255,0.22)] backdrop-blur-md transition-colors hover:text-white"
+                    whileHover={{
+                      scale: 1.04,
+                      boxShadow: "0 0 28px rgba(0,255,255,0.38)",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-400/10 ring-1 ring-cyan-300/40 transition-colors group-hover:bg-cyan-300/20 group-hover:ring-cyan-200/70">
+                      <Phone className="h-3.5 w-3.5" strokeWidth={2.2} />
+                    </span>
+                    <span className="hidden sm:inline">Свържете се</span>
+                  </motion.a>
+                  <motion.button
+                    type="button"
+                    aria-label={isMobileMenuOpen ? "Затвори меню" : "Отвори меню"}
+                    aria-expanded={isMobileMenuOpen}
+                    onClick={() => setIsMobileMenuOpen((open) => !open)}
+                    className="lg:hidden flex h-11 w-11 items-center justify-center rounded-full border border-cyan-400/50 bg-black/35 text-cyan-100 shadow-[0_0_18px_rgba(0,255,255,0.18)] backdrop-blur-md"
+                    whileTap={{ scale: 0.94 }}
+                  >
+                    {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                  </motion.button>
+                </div>
+
+                <AnimatePresence>
+                  {isMobileMenuOpen ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: -12, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                      transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+                      className="lg:hidden absolute left-4 right-4 top-[calc(100%+0.75rem)] overflow-hidden rounded-2xl border border-cyan-400/40 bg-black/80 shadow-[0_20px_70px_rgba(0,255,255,0.18)] backdrop-blur-xl"
+                    >
+                      <div className="flex flex-col py-2">
+                        {navItems.map((item) => (
+                          <button
+                            key={item.id}
+                            type="button"
+                            onClick={() => scrollToSection(item.id)}
+                            className="flex items-center justify-between px-5 py-4 text-left text-base font-medium text-cyan-100 transition-colors hover:bg-cyan-400/10"
+                          >
+                            <span>{item.label}</span>
+                            <span className="h-px w-10 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_10px_rgba(0,255,255,0.7)]" />
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
 
 <motion.div
   className="absolute bottom-0 left-0 h-[2px] w-full origin-left"
@@ -1103,9 +1599,14 @@ const App = () => {
               </motion.div>
             </nav>
 
-            <main className="text-white">
+            <main className="flex flex-col text-white">
               {/* First Section */}
-              <section className="relative min-h-screen flex flex-col items-center justify-center">
+              <motion.section
+                className="relative min-h-screen flex flex-col items-center justify-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.35 }}
+              >
                 <video
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   src="/video/tech-video-2.mp4"
@@ -1115,18 +1616,31 @@ const App = () => {
                   playsInline
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
-                <div className="relative z-10 text-center px-4">
-                  <h2 className="text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                <motion.div
+                  className="relative z-10 text-center px-4"
+                  variants={staggerContainerVariants}
+                >
+                  <motion.h2
+                    variants={sectionRevealVariants}
+                    className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
+                  >
                     Добре дошли в VM Studio
-                  </h2>
-                  <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto">
+                  </motion.h2>
+                  <motion.p
+                    variants={sectionRevealVariants}
+                    className="text-base sm:text-xl md:text-2xl text-white max-w-2xl mx-auto"
+                  >
                     Професионални уеб решения, онлайн маркетинг и дигитален растеж за вашия бизнес.
-                  </p>
-                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                  </motion.p>
+                  <motion.div
+                    variants={staggerContainerVariants}
+                    className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+                  >
                     <motion.button
                       type="button"
                       onClick={() => scrollToSection("services")}
-                      className="relative overflow-hidden rounded-md px-8 py-4 font-semibold text-white bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_28px_rgba(0,255,255,0.32)] transition-transform"
+                      className="relative w-full sm:w-auto overflow-hidden rounded-md px-8 py-4 font-semibold text-white bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_28px_rgba(0,255,255,0.32)] transition-transform"
+                      variants={sectionRevealVariants}
                       whileHover={{
                         scale: 1.04,
                         y: -2,
@@ -1140,7 +1654,8 @@ const App = () => {
                     <motion.button
                       type="button"
                       onClick={() => scrollToSection("contact")}
-                      className="relative overflow-hidden rounded-md border border-cyan-400/70 px-8 py-4 font-semibold text-cyan-100 bg-black/25 shadow-[0_0_22px_rgba(0,255,255,0.18)] backdrop-blur-md transition-transform"
+                      className="relative w-full sm:w-auto overflow-hidden rounded-md border border-cyan-400/70 px-8 py-4 font-semibold text-cyan-100 bg-black/25 shadow-[0_0_22px_rgba(0,255,255,0.18)] backdrop-blur-md transition-transform"
+                      variants={sectionRevealVariants}
                       whileHover={{
                         scale: 1.04,
                         y: -2,
@@ -1150,22 +1665,22 @@ const App = () => {
                     >
                       <span className="relative z-10">Свържи се с нас</span>
                     </motion.button>
-                  </div>
-                </div>
-              </section>
+                  </motion.div>
+                </motion.div>
+              </motion.section>
 
 
               <section id="services" className="relative py-24 bg-gray-900 overflow-hidden">
 
 
                 {/* Content */}
-                <div className="relative z-10 max-w-7xl mx-auto px-6">
+                <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
                   <PremiumSectionTitle className="mb-16">
                     Нашите услуги
                   </PremiumSectionTitle>
 
                   <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-16"
                     variants={staggerContainerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -1176,10 +1691,7 @@ const App = () => {
                         title: "AI",
                         description: "Интелигентни алгоритми за вашия бизнес.",
                         icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
-                            <circle cx="32" cy="32" r="12" stroke="currentColor" strokeWidth="4" />
-                            <path d="M32 8v16M32 40v16M8 32h16M40 32h16M16 16l11 11M37 37l11 11M16 48l11-11M37 27l11-11" stroke="currentColor" strokeWidth="2" />
-                          </svg>
+                          <BrainCircuit className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
                         gradientFrom: "from-cyan-400",
                         gradientTo: "to-blue-500",
@@ -1188,12 +1700,7 @@ const App = () => {
                         title: "Web Development",
                         description: "Съвременни уеб приложения с висока производителност.",
                         icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
-                            <rect x="8" y="16" width="48" height="32" stroke="currentColor" strokeWidth="4" />
-                            <path d="M8 24h48" stroke="currentColor" strokeWidth="4" />
-                            <circle cx="16" cy="20" r="2" fill="currentColor" />
-                            <circle cx="24" cy="20" r="2" fill="currentColor" />
-                          </svg>
+                          <Code2 className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
                         gradientFrom: "from-purple-400",
                         gradientTo: "to-pink-500",
@@ -1202,10 +1709,7 @@ const App = () => {
                         title: "Mobile Apps",
                         description: "iOS и Android native & cross-platform решения.",
                         icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
-                            <rect x="24" y="8" width="16" height="48" rx="4" stroke="currentColor" strokeWidth="4" />
-                            <circle cx="32" cy="52" r="2" fill="currentColor" />
-                          </svg>
+                          <Smartphone className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
                         gradientFrom: "from-green-400",
                         gradientTo: "to-lime-500",
@@ -1214,9 +1718,7 @@ const App = () => {
                         title: "UI/UX Design",
                         description: "Интуитивни и визуално впечатляващи интерфейси.",
                         icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
-                            <path d="M8 56V8h48v48L32 36 8 56z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
+                          <Layers3 className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
                         gradientFrom: "from-pink-400",
                         gradientTo: "to-red-500",
@@ -1225,9 +1727,7 @@ const App = () => {
                         title: "Cloud Solutions",
                         description: "Облачни инфраструктури и стратегии за деплоймент.",
                         icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
-                            <path d="M32 16a12 12 0 0112 12H20a12 12 0 012-12" stroke="currentColor" strokeWidth="4" />
-                          </svg>
+                          <CloudCog className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
                         gradientFrom: "from-blue-400",
                         gradientTo: "to-indigo-500",
@@ -1236,9 +1736,7 @@ const App = () => {
                         title: "Digital Marketing",
                         description: "SEO, SEM, social media и content marketing.",
                         icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
-                            <path d="M8 32h48M32 8v48" stroke="currentColor" strokeWidth="4" />
-                          </svg>
+                          <TrendingUp className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
                         gradientFrom: "from-yellow-400",
                         gradientTo: "to-orange-500",
@@ -1295,7 +1793,7 @@ const App = () => {
               {/* Testimonials Section with Form Below */}
               <section
                 id="testimonials"
-                className="relative py-24 bg-black overflow-hidden"
+                className="relative order-5 py-24 bg-black overflow-hidden"
               >
                 {/* Dynamic hi-tech background */}
                 <div className="absolute inset-0 z-0">
@@ -1334,18 +1832,18 @@ const App = () => {
                   ))}
                 </div>
 
-                <div className="relative z-10 max-w-6xl mx-auto px-6">
+                <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6">
                   <PremiumSectionTitle className="mb-12">
                     Клиенти & Отзиви
                   </PremiumSectionTitle>
 
                   {/* Testimonials Slider on Top */}
                   <motion.div
-                    className="overflow-hidden cursor-grab mb-20"
+                    className="overflow-hidden cursor-grab mb-14 sm:mb-20"
                     whileTap={{ cursor: "grabbing" }}
                   >
                     <motion.div
-                      className="flex gap-8 py-4"
+                      className="flex gap-4 sm:gap-8 py-4"
                       drag="x"
                       dragConstraints={{ left: -1600, right: 0 }}
                       variants={testimonialsTrackVariants}
@@ -1353,18 +1851,10 @@ const App = () => {
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.25 }}
                     >
-                      {approvedReviews.length === 0 ? (
-                        <motion.div
-                          className="min-w-[340px] max-w-sm rounded-3xl border border-cyan-400/30 bg-gray-900/40 p-10 text-center text-gray-300"
-                          variants={testimonialsRevealVariants}
-                        >
-                          Все още няма публикувани отзиви.
-                        </motion.div>
-                      ) : (
-                        approvedReviews.map((testimonial, i) => (
+                      {displayedReviews.map((testimonial, i) => (
                         <motion.div
                           key={testimonial.id}
-                          className="group min-w-[340px] max-w-sm"
+                          className="group min-w-[min(82vw,340px)] max-w-sm"
                           variants={testimonialsRevealVariants}
                           whileHover={
                             prefersReducedMotion
@@ -1378,7 +1868,7 @@ const App = () => {
                           transition={{ type: "spring", stiffness: 180, damping: 18 }}
                         >
                           <motion.div
-                            className="relative overflow-hidden p-10 rounded-3xl bg-gray-900/60 border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.25)]"
+                            className="relative overflow-hidden p-6 sm:p-10 rounded-3xl bg-gray-900/60 border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.25)]"
                             animate={prefersReducedMotion ? {} : { y: [0, -6, 0] }}
                             transition={{ repeat: Infinity, duration: 6 + i, ease: "easeInOut" }}
                           >
@@ -1408,14 +1898,13 @@ const App = () => {
                             </motion.div>
                           </motion.div>
                         </motion.div>
-                        ))
-                      )}
+                      ))}
                     </motion.div>
                   </motion.div>
 
                   {/* Futuristic Comment Form Below */}
                   <motion.div
-                    className="max-w-lg mx-auto"
+                    className="max-w-lg mx-auto px-1 sm:px-0"
                     variants={sectionRevealVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -1522,11 +2011,14 @@ const App = () => {
       viewport={{ once: true, amount: 0.18 }}
     >
       <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="absolute inset-x-0 bottom-12 h-52 bg-[radial-gradient(ellipse_at_center,rgba(37,99,235,0.2),rgba(168,85,247,0.12)_36%,transparent_70%)] blur-2xl" />
+      <div className="absolute bottom-0 left-0 h-44 w-1/3 bg-[radial-gradient(circle,rgba(217,70,239,0.2),transparent_68%)] blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-44 w-1/3 bg-[radial-gradient(circle,rgba(245,158,11,0.18),transparent_68%)] blur-3xl" />
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
         <PremiumSectionTitle className="mb-12">
           Нашето портфолио
         </PremiumSectionTitle>
-        <motion.p variants={portfolioRevealVariants} className="text-center text-gray-400 mb-16 max-w-2xl mx-auto text-lg md:text-xl">
+        <motion.p variants={portfolioRevealVariants} className="text-center text-gray-400 mb-12 sm:mb-16 max-w-2xl mx-auto text-base sm:text-lg md:text-xl">
           Работим по вълнуващи проекти – скоро ще покажем нашите успешни реализации!
         </motion.p>
 
@@ -1545,7 +2037,10 @@ const App = () => {
           observer
           observeParents
           watchSlidesProgress
-          onSwiper={(swiper) => setActiveProjectIndex(swiper.realIndex)}
+          onSwiper={(swiper) => {
+            portfolioSwiperRef.current = swiper;
+            setActiveProjectIndex(swiper.realIndex);
+          }}
           onSlideChange={(swiper) => setActiveProjectIndex(swiper.realIndex)}
           className="portfolio-swiper w-full py-12"
         >
@@ -1553,7 +2048,8 @@ const App = () => {
             <SwiperSlide
               key={i}
               className="portfolio-slide group rounded-3xl overflow-hidden relative shadow-[0_0_30px_rgba(0,255,255,0.4)]"
-              style={{ width: "20rem", height: "24rem" }}
+              style={{ width: "min(82vw, 20rem)", height: "min(24rem, 112vw)" }}
+              onClick={() => portfolioSwiperRef.current?.slideToLoop(i)}
             >
               <PortfolioCard
                 project={project}
@@ -1593,7 +2089,7 @@ const App = () => {
                   ))}
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-6">
+                <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
                   <PremiumSectionTitle className="mb-12">
                     Зад нашия екип
                   </PremiumSectionTitle>
@@ -1603,13 +2099,13 @@ const App = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.45 }}
-                    className="text-center text-gray-400 mb-20 max-w-2xl mx-auto text-lg md:text-xl"
+                    className="text-center text-gray-400 mb-14 sm:mb-20 max-w-2xl mx-auto text-base sm:text-lg md:text-xl"
                   >
                     Нашият екип се състои от специалисти с дългогодишен опит в технологии, дизайн и дигитален маркетинг. Съчетаваме професионализъм и иновации, за да създаваме решения, които работят.
                   </motion.p>
 
                   <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12"
                     variants={teamGridVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -1618,50 +2114,33 @@ const App = () => {
                     {[
                       {
                         role: "Lead Developer", exp: "10+ години опит", icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-16 h-16 text-cyan-400">
-                            <rect x="8" y="16" width="48" height="32" stroke="currentColor" strokeWidth="3" fill="none" />
-                            <circle cx="16" cy="24" r="2" fill="currentColor" />
-                            <circle cx="24" cy="24" r="2" fill="currentColor" />
-                          </svg>
+                          <LayoutDashboard className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
                         role: "UI/UX Designer", exp: "8+ години опит", icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-16 h-16 text-cyan-400">
-                            <path d="M8 56V8h48v48L32 36 8 56z" stroke="currentColor" strokeWidth="3" fill="none" />
-                          </svg>
+                          <PenTool className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
                         role: "Cloud & DevOps", exp: "7+ години опит", icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-16 h-16 text-cyan-400">
-                            <path d="M32 16a12 12 0 0112 12H20a12 12 0 012-12" stroke="currentColor" strokeWidth="3" fill="none" />
-                          </svg>
+                          <CloudCog className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
                         role: "Digital Marketing", exp: "6+ години опит", icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-16 h-16 text-cyan-400">
-                            <path d="M8 32h48M32 8v48" stroke="currentColor" strokeWidth="3" />
-                          </svg>
+                          <BarChart3 className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       // Новите двама developers
                       {
                         role: "Frontend Developer", exp: "5+ години опит", icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-16 h-16 text-cyan-400">
-                            <rect x="10" y="18" width="44" height="28" stroke="currentColor" strokeWidth="3" fill="none" />
-                            <path d="M18 24h28M18 32h28M18 40h28" stroke="currentColor" strokeWidth="2" />
-                          </svg>
+                          <Sparkles className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
                         role: "Backend Developer", exp: "6+ години опит", icon: (
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-16 h-16 text-cyan-400">
-                            <ellipse cx="32" cy="32" rx="20" ry="12" stroke="currentColor" strokeWidth="3" fill="none" />
-                            <path d="M12 32v0h40v0" stroke="currentColor" strokeWidth="2" />
-                            <path d="M32 20v24" stroke="currentColor" strokeWidth="2" />
-                          </svg>
+                          <Database className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                     ].map((member, i) => (
@@ -1681,7 +2160,7 @@ const App = () => {
 
               {/* Process Section */}
               <section id="process" className="relative py-24 bg-gray-900 overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6">
                   <PremiumSectionTitle className="mb-12">
                     Нашият процес
                   </PremiumSectionTitle>
@@ -1690,96 +2169,92 @@ const App = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.35 }}
-                    className="text-gray-400 max-w-2xl mx-auto mb-16 text-center text-lg md:text-xl"
+                    className="text-gray-400 max-w-2xl mx-auto mb-12 sm:mb-16 text-center text-base sm:text-lg md:text-xl"
                   >
                     Всяко решение преминава през внимателно планиране и изпълнение, за да осигурим максимално качество и ефективност.
                   </motion.p>
 
                   <div className="relative flex">
                     {/* Vertical Progress Indicator */}
-                    <div className="relative w-1 bg-gray-700 rounded-full mr-12">
+                    <div className="relative w-1 bg-gray-700 rounded-full mr-5 sm:mr-12">
                       <motion.div
                         className="absolute top-0 left-0 w-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-400 rounded-full origin-top"
                         initial={{ height: "0%" }}
                         whileInView={{ height: "100%" }}
                         viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
+                        transition={{ duration: prefersReducedMotion ? 0 : isMobileViewport ? 1.35 : 2, ease: "easeInOut" }}
                       />
                     </div>
 
                     {/* Steps */}
-                    <div className="flex-1 flex flex-col space-y-16">
+                    <div className="flex-1 flex flex-col space-y-8 sm:space-y-16">
                       {[
                         {
                           title: "Идея & Концепция",
                           description: "Обсъждане на нуждите, визията на проекта и потенциални технологии.",
                           icon: (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                            <Lightbulb className="h-12 w-12 overflow-visible text-cyan-400" strokeWidth={1.8} />
                           ),
                         },
                         {
                           title: "План & Архитектура",
                           description: "Създаваме детайлен план и архитектура, която гарантира мащабируемост и ефективност.",
                           icon: (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7h18M3 12h18M3 17h18" />
-                            </svg>
+                            <Route className="h-12 w-12 overflow-visible text-blue-400" strokeWidth={1.8} />
                           ),
                         },
                         {
                           title: "Дизайн",
                           description: "UI/UX решения, които са интуитивни, визуално впечатляващи и модерни.",
                           icon: (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12 12 0 01.84 6.042L12 14z" />
-                            </svg>
+                            <PenTool className="h-12 w-12 overflow-visible text-purple-400" strokeWidth={1.8} />
                           ),
                         },
                         {
                           title: "Разработка",
                           description: "Frontend & Backend имплементация с висок стандарт за качество и performance.",
                           icon: (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v4m0 0l-2-2m2 2l2-2" />
-                            </svg>
+                            <Code2 className="h-12 w-12 overflow-visible text-green-400" strokeWidth={1.8} />
                           ),
                         },
                         {
                           title: "Тест & Оптимизация",
                           description: "Пълно тестиране, дебъг и оптимизация за висока производителност и стабилност.",
                           icon: (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                            <SearchCheck className="h-12 w-12 overflow-visible text-yellow-400" strokeWidth={1.8} />
                           ),
                         },
                         {
                           title: "Деплой & Поддръжка",
                           description: "Деплой на live среда, monitoring и постоянна поддръжка на проекта.",
                           icon: (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
+                            <Rocket className="h-12 w-12 overflow-visible text-pink-400" strokeWidth={1.8} />
                           ),
                         },
                       ].map((step, i) => (
                         <motion.div
                           key={i}
                           className="relative flex justify-start md:justify-start"
-                          initial={{ opacity: 0, x: 100 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          initial={{
+                            opacity: prefersReducedMotion ? 1 : 0,
+                            x: prefersReducedMotion ? 0 : isMobileViewport ? 24 : 100,
+                            y: prefersReducedMotion ? 0 : isMobileViewport ? 18 : 0,
+                            filter: prefersReducedMotion ? "blur(0px)" : isMobileViewport ? "blur(8px)" : "blur(0px)",
+                          }}
+                          whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
                           viewport={{ once: true, amount: 0.2 }}
-                          transition={{ duration: 0.8, delay: i * 0.2 }}
+                          transition={{
+                            duration: prefersReducedMotion ? 0 : isMobileViewport ? 0.62 : 0.8,
+                            delay: prefersReducedMotion ? 0 : i * (isMobileViewport ? 0.11 : 0.2),
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
                         >
-                          <div className="flex gap-6 items-start w-full">
+                          <div className="flex gap-4 sm:gap-6 items-start w-full">
                             {/* Икона */}
-                            <div className="flex-shrink-0 mt-2">{step.icon}</div>
+                            <div className="flex-shrink-0 mt-2 overflow-visible scale-90 sm:scale-100 origin-top">{step.icon}</div>
                             {/* Блок с описание */}
                             <motion.div
-                              className="bg-gray-800/40 backdrop-blur-md rounded-2xl p-6 relative border border-gray-700"
+                              className="bg-gray-800/40 backdrop-blur-md rounded-2xl p-4 sm:p-6 relative border border-gray-700"
                               whileHover={
                                 prefersReducedMotion
                                   ? {}
@@ -1791,8 +2266,8 @@ const App = () => {
                               }
                               transition={{ type: "spring", stiffness: 200, damping: 18 }}
                             >
-                              <h3 className="text-2xl font-bold text-white">{step.title}</h3>
-                              <p className="text-gray-400 mt-2">{step.description}</p>
+                              <h3 className="text-xl sm:text-2xl font-bold text-white">{step.title}</h3>
+                              <p className="text-sm sm:text-base text-gray-400 mt-2">{step.description}</p>
                               <span className="absolute top-0 left-0 w-full h-full rounded-2xl border border-cyan-400 opacity-20 animate-pulse pointer-events-none"></span>
                             </motion.div>
                           </div>
@@ -1806,7 +2281,7 @@ const App = () => {
               {/* Свържете се с нас */}
               <section
                 id="contact"
-                className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden"
+                className="relative order-6 min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden"
               >
                 {/* Hi-Tech Dynamic Background */}
                 <div className="absolute inset-0 z-0">
@@ -1862,7 +2337,7 @@ const App = () => {
 
                 {/* Контактна форма */}
                 <motion.div
-                  className="relative z-10 w-full max-w-xl bg-gray-800/30 backdrop-blur-md p-8 rounded-2xl border-2 border-cyan-400 shadow-[0_0_30px_rgba(0,255,255,0.5)] transition-all duration-300"
+                  className="relative z-10 w-[calc(100%-2rem)] max-w-xl bg-gray-800/30 backdrop-blur-md p-5 sm:p-8 rounded-2xl border-2 border-cyan-400 shadow-[0_0_30px_rgba(0,255,255,0.5)] transition-all duration-300"
                   variants={sectionRevealVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -1875,7 +2350,7 @@ const App = () => {
 
                   <motion.form
                     onSubmit={handleContactSubmit}
-                    className="flex flex-col gap-6 relative z-10"
+                    className="flex flex-col gap-5 sm:gap-6 relative z-10"
                     variants={staggerContainerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -1984,7 +2459,7 @@ const App = () => {
               {/* === FUTURISTIC FOOTER === */}
               {/* === FUTURISTIC FOOTER 2.0 === */}
               <motion.footer
-                className="relative w-full py-12 mt-20 bg-black text-center overflow-hidden"
+                className="relative order-7 w-full py-12 mt-20 bg-black text-center overflow-hidden"
                 variants={sectionRevealVariants}
                 initial="hidden"
                 whileInView="visible"

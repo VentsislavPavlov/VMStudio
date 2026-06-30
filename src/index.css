@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar for dark theme */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #111;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #00ffff;
-  border-radius: 10px;
-  border: 2px solid #111;
-}
-
 .portfolio-swiper {
   min-height: 28rem;
   overflow: visible;
@@ -54,6 +41,48 @@
   border-radius: 9999px;
   opacity: 1;
   box-shadow: 0 0 12px #00ffff;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-y: auto;
+  scrollbar-color: #00ffff #111111;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: #00ffff;
+  border-radius: 10px;
+  border: 2px solid #111111;
+  min-height: 48px;
+}
+
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  margin: 0;
+  overflow-y: clip;
 }
 
 .portfolio-prev,
@@ -231,6 +260,64 @@ footer.premium-section.premium-inview .relative.z-10 > * {
   }
   to {
     filter: drop-shadow(0 22px 44px rgba(0, 255, 255, 0.11));
+  }
+}
+
+@media (max-width: 767px) {
+  main > section[id],
+  main > footer {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  main > section:first-child {
+    min-height: 100svh;
+  }
+
+  .portfolio-swiper {
+    min-height: 25rem;
+    padding-top: 1.5rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  .portfolio-swiper .portfolio-slide {
+    width: min(82vw, 20rem) !important;
+    height: min(112vw, 24rem) !important;
+  }
+
+  .portfolio-swiper .swiper-pagination {
+    bottom: 0.25rem !important;
+  }
+
+  .portfolio-swiper .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+  }
+
+  .portfolio-swiper .swiper-pagination-bullet-active {
+    width: 24px;
+  }
+
+  #testimonials .flex.gap-4,
+  #testimonials .flex.gap-8 {
+    touch-action: pan-y;
+  }
+
+  #contact input,
+  #contact textarea,
+  #testimonials input,
+  #testimonials textarea,
+  #contact button,
+  #testimonials button {
+    min-height: 48px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .group:hover .group-hover\:scale-110,
+  .group:hover .group-hover\:scale-\[1\.07\],
+  .group:hover .group-hover\:-translate-y-1 {
+    transform: none;
   }
 }
 
