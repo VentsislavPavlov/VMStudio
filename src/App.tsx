@@ -239,6 +239,66 @@ type TeamCardProps = {
   prefersReducedMotion: boolean | null;
 };
 
+type AutoPlayVideoProps = {
+  src: string;
+  className: string;
+};
+
+const AutoPlayVideo = ({ src, className }: AutoPlayVideoProps) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise) {
+        playPromise.catch(() => {
+          // iOS may block autoplay in Low Power Mode until the first user gesture.
+        });
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        tryPlay();
+      }
+    };
+
+    tryPlay();
+    window.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+    window.addEventListener("pointerdown", tryPlay, { once: true, passive: true });
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("touchstart", tryPlay);
+      window.removeEventListener("pointerdown", tryPlay);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      className={className}
+      src={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
+      controls={false}
+      disablePictureInPicture
+      aria-hidden="true"
+    />
+  );
+};
+
 const TeamCard = ({ member, variants, prefersReducedMotion }: TeamCardProps) => {
   const [isHoverable, setIsHoverable] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -1344,13 +1404,9 @@ const App = () => {
               touchStartY.current = null;
             }}
           >
-            <video
+            <AutoPlayVideo
               className="absolute top-0 left-0 w-full h-full object-cover"
               src="/video/tech-video.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
             />
               <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08),transparent_52%)]"></div>
@@ -1607,13 +1663,9 @@ const App = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.35 }}
               >
-                <video
+                <AutoPlayVideo
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   src="/video/tech-video-2.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
                 <motion.div
