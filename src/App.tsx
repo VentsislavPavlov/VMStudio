@@ -1845,10 +1845,10 @@ const App = () => {
               {/* Testimonials Section with Form Below */}
               <section
                 id="testimonials"
-                className="relative order-5 py-24 bg-black overflow-hidden"
+                className="relative order-5 py-28 bg-gradient-to-b from-gray-900 via-black to-gray-900 overflow-hidden"
               >
                 {/* Dynamic hi-tech background */}
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 opacity-45 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
                   {[...Array(50)].map((_, i) => (
                     <motion.div
                       key={i}
@@ -1891,11 +1891,11 @@ const App = () => {
 
                   {/* Testimonials Slider on Top */}
                   <motion.div
-                    className="overflow-hidden cursor-grab mb-14 sm:mb-20"
+                    className="overflow-x-hidden overflow-y-visible cursor-grab mb-14 sm:mb-20 py-5"
                     whileTap={{ cursor: "grabbing" }}
                   >
                     <motion.div
-                      className="flex gap-4 sm:gap-8 py-4"
+                      className="flex gap-4 sm:gap-8 py-8"
                       drag="x"
                       dragConstraints={{ left: -1600, right: 0 }}
                       variants={testimonialsTrackVariants}
@@ -2165,7 +2165,7 @@ const App = () => {
                   >
                     {[
                       {
-                        role: "Lead Developer", exp: "10+ години опит", icon: (
+                        role: "Lead Developer", exp: "14+ години опит", icon: (
                           <LayoutDashboard className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
@@ -2186,12 +2186,12 @@ const App = () => {
                       },
                       // Новите двама developers
                       {
-                        role: "Frontend Developer", exp: "5+ години опит", icon: (
+                        role: "Frontend Developer", exp: "10+ години опит", icon: (
                           <Sparkles className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
-                        role: "Backend Developer", exp: "6+ години опит", icon: (
+                        role: "Backend Developer", exp: "10+ години опит", icon: (
                           <Database className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
