@@ -31,28 +31,28 @@ const optionalText = z
   .pipe(z.string().max(160).optional());
 
 const contactSchema = z.object({
-  name: z.string().min(2, "Please enter your name.").max(120).transform(sanitizeText),
-  email: z.string().email("Please enter a valid email.").max(160).transform(sanitizeText),
-  phone: z.string().min(5, "Please enter a phone number.").max(40).transform(sanitizeText),
+  name: z.string().min(2, "Моля, въведете вашето име.").max(120).transform(sanitizeText),
+  email: z.string().email("Моля, въведете валиден имейл.").max(160).transform(sanitizeText),
+  phone: z.string().min(5, "Моля, въведете телефонен номер.").max(40).transform(sanitizeText),
   selectedService: optionalText,
   company: optionalText,
-  message: z.string().min(10, "Please enter a message.").max(3000).transform(sanitizeText),
+  message: z.string().min(10, "Моля, въведете съобщение.").max(3000).transform(sanitizeText),
   website: z.string().optional(),
   turnstileToken: z.string().optional(),
 });
 
 const reviewSchema = z.object({
-  name: z.string().min(2, "Please enter your name.").max(120).transform(sanitizeText),
+  name: z.string().min(2, "Моля, въведете вашето име.").max(120).transform(sanitizeText),
   email: z
     .string()
-    .email("Please enter a valid email.")
+    .email("Моля, въведете валиден имейл.")
     .max(160)
     .transform(sanitizeText)
     .optional()
     .or(z.literal("").transform(() => undefined)),
-  roleCompany: z.string().min(2, "Please enter your role or company.").max(180).transform(sanitizeText),
+  roleCompany: z.string().min(2, "Моля, въведете длъжност или компания.").max(180).transform(sanitizeText),
   rating: z.coerce.number().int().min(1).max(5).default(5),
-  message: z.string().min(10, "Please enter your review.").max(1400).transform(sanitizeText),
+  message: z.string().min(10, "Моля, въведете вашия отзив.").max(1400).transform(sanitizeText),
   avatar: optionalText,
   website: z.string().optional(),
   turnstileToken: z.string().optional(),
@@ -84,17 +84,17 @@ export async function submitContactForm(
     const parsed = contactSchema.safeParse(formDataToObject(formData));
 
     if (!parsed.success) {
-      return failure("Please check the highlighted fields.", zodErrors(parsed.error));
+      return failure("Моля, проверете маркираните полета.", zodErrors(parsed.error));
     }
 
     const data = parsed.data;
 
     if (data.website) {
-      return emptySuccess("Thank you! We will get back to you as soon as possible.");
+      return emptySuccess("Благодарим ви! Ще се свържем с вас възможно най-скоро.");
     }
 
     if (!(await verifyTurnstileToken(data.turnstileToken))) {
-      return failure("Security verification failed. Please try again.");
+      return failure("Проверката за сигурност не беше успешна. Моля, опитайте отново.");
     }
 
     const message = await prisma.contactMessage.create({
@@ -109,25 +109,25 @@ export async function submitContactForm(
     });
 
     await sendEmail({
-      subject: "New Contact Request",
+      subject: "Ново запитване от контактната форма",
       replyTo: data.email,
       html: `
-        <h1>New Contact Request</h1>
-        <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
-        <p><strong>Service:</strong> ${escapeHtml(data.selectedService ?? "Not selected")}</p>
-        <p><strong>Company:</strong> ${escapeHtml(data.company ?? "Not provided")}</p>
-        <p><strong>Message:</strong></p>
+        <h1>Ново запитване от контактната форма</h1>
+        <p><strong>Име:</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Имейл:</strong> ${escapeHtml(data.email)}</p>
+        <p><strong>Телефон:</strong> ${escapeHtml(data.phone)}</p>
+        <p><strong>Услуга:</strong> ${escapeHtml(data.selectedService ?? "Не е избрана")}</p>
+        <p><strong>Компания:</strong> ${escapeHtml(data.company ?? "Не е посочена")}</p>
+        <p><strong>Съобщение:</strong></p>
         <p>${escapeHtml(data.message).replace(/\n/g, "<br />")}</p>
-        <p><strong>Message ID:</strong> ${escapeHtml(message.id)}</p>
+        <p><strong>ID на съобщението:</strong> ${escapeHtml(message.id)}</p>
       `,
     });
 
-    return emptySuccess("Thank you! We will get back to you as soon as possible.");
+    return emptySuccess("Благодарим ви! Ще се свържем с вас възможно най-скоро.");
   } catch (error) {
     console.error("Contact form error:", error);
-    return failure("Something went wrong. Please try again later.");
+    return failure("Възникна проблем. Моля, опитайте отново по-късно.");
   }
 }
 
@@ -141,17 +141,17 @@ export async function submitReviewForm(
     const parsed = reviewSchema.safeParse(formDataToObject(formData));
 
     if (!parsed.success) {
-      return failure("Please check the highlighted fields.", zodErrors(parsed.error));
+      return failure("Моля, проверете маркираните полета.", zodErrors(parsed.error));
     }
 
     const data = parsed.data;
 
     if (data.website) {
-      return emptySuccess("Thank you for your review! It will be published after approval.");
+      return emptySuccess("Благодарим за вашия отзив! Ще бъде публикуван след одобрение.");
     }
 
     if (!(await verifyTurnstileToken(data.turnstileToken))) {
-      return failure("Security verification failed. Please try again.");
+      return failure("Проверката за сигурност не беше успешна. Моля, опитайте отново.");
     }
 
     const roleCompany = splitRoleCompany(data.roleCompany);
@@ -169,28 +169,28 @@ export async function submitReviewForm(
     });
 
     await sendEmail({
-      subject: "New testimonial awaiting approval.",
+      subject: "Нов отзив очаква одобрение.",
       replyTo: data.email,
       html: `
-        <h1>New testimonial awaiting approval.</h1>
-        <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(data.email ?? "Not provided")}</p>
-        <p><strong>Company:</strong> ${escapeHtml(roleCompany.company)}</p>
-        <p><strong>Role:</strong> ${escapeHtml(roleCompany.role)}</p>
-        <p><strong>Rating:</strong> ${escapeHtml(String(data.rating))}/5</p>
-        <p><strong>Review:</strong></p>
+        <h1>Нов отзив очаква одобрение.</h1>
+        <p><strong>Име:</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Имейл:</strong> ${escapeHtml(data.email ?? "Не е посочен")}</p>
+        <p><strong>Компания:</strong> ${escapeHtml(roleCompany.company)}</p>
+        <p><strong>Длъжност:</strong> ${escapeHtml(roleCompany.role)}</p>
+        <p><strong>Оценка:</strong> ${escapeHtml(String(data.rating))}/5</p>
+        <p><strong>Отзив:</strong></p>
         <p>${escapeHtml(data.message).replace(/\n/g, "<br />")}</p>
-        <p><strong>Review ID:</strong> ${escapeHtml(review.id)}</p>
-        <p>Admin panel: /admin/reviews</p>
+        <p><strong>ID на отзива:</strong> ${escapeHtml(review.id)}</p>
+        <p>Админ панел: /admin/reviews</p>
       `,
     });
 
     revalidatePath("/");
     revalidatePath("/admin/reviews");
 
-    return emptySuccess("Thank you for your review! It will be published after approval.");
+    return emptySuccess("Благодарим за вашия отзив! Ще бъде публикуван след одобрение.");
   } catch (error) {
     console.error("Review form error:", error);
-    return failure("Something went wrong. Please try again later.");
+    return failure("Възникна проблем. Моля, опитайте отново по-късно.");
   }
 }

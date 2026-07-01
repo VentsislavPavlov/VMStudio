@@ -51,8 +51,8 @@ const navItems = [
 
 const services = [
   {
-    title: "Web Development",
-    description: "High-performance, scalable web applications.",
+    title: "Уеб разработка",
+    description: "Бързи и мащабируеми уеб приложения.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" className="w-10 h-10 text-white">
         <path d="M8 16h48v32H8z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
@@ -66,8 +66,8 @@ const services = [
     shadow: "shadow-[0_0_20px_#00ffff]",
   },
   {
-    title: "Mobile Apps",
-    description: "iOS and Android native and cross-platform apps.",
+    title: "Мобилни приложения",
+    description: "Приложения за iOS и Android.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" className="w-10 h-10 text-white">
         <circle cx="32" cy="32" r="16" stroke="currentColor" strokeWidth="4" />
@@ -79,7 +79,7 @@ const services = [
     shadow: "shadow-[0_0_20px_#d946ef]",
   },
   {
-    title: "UI/UX Design",
+    title: "Дизайн на интерфейси",
     description: "Intuitive and visually appealing user interfaces.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" className="w-10 h-10 text-white">
@@ -106,8 +106,8 @@ const services = [
     shadow: "shadow-[0_0_20px_#22c55e]",
   },
   {
-    title: "Cloud Solutions",
-    description: "Cloud infrastructure and deployment strategies.",
+    title: "Облачни решения",
+    description: "Облачна инфраструктура и стратегии за внедряване.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" className="w-10 h-10 text-white">
         <path d="M32 16a12 12 0 0112 12H20a12 12 0 012-12" stroke="currentColor" strokeWidth="4" />
@@ -118,8 +118,8 @@ const services = [
     shadow: "shadow-[0_0_20px_#3b82f6]",
   },
   {
-    title: "Digital Marketing",
-    description: "SEO, SEM, social media and content marketing.",
+    title: "Дигитален маркетинг",
+    description: "Оптимизация, платена реклама, социални мрежи и съдържание.",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 64 64" className="w-10 h-10 text-white">
         <path d="M8 32h48M32 8v48" stroke="currentColor" strokeWidth="4" />
@@ -141,42 +141,42 @@ type Project = {
 
   const projects: Project[] = [
     {
-      title: "Pulse Fitness Website",
-      description: "Тъмна fitness платформа с програми, тренировки и силен conversion flow.",
+      title: "Pulse фитнес сайт",
+      description: "Тъмна фитнес платформа с програми, тренировки и ясен път към запитване.",
       img: "/images/portfolio-fitness.svg",
       concept: "fitness",
       accent: "purple",
     },
     {
-      title: "Finova Finance Dashboard",
-      description: "Премиум dashboard за финанси, аналитика и бързо вземане на решения.",
+      title: "Finova финансов панел",
+      description: "Премиум панел за финанси, анализи и бързо вземане на решения.",
       img: "/images/portfolio-finance.svg",
       concept: "finance",
       accent: "blue",
     },
     {
-      title: "Atelier Interior Studio",
-      description: "Минимален interior сайт с editorial визия и премиум проектни галерии.",
+      title: "Atelier интериорно студио",
+      description: "Минимален сайт за интериорен дизайн с премиум проектни галерии.",
       img: "/images/portfolio-real-estate.svg",
       concept: "interior",
       accent: "orange",
     },
     {
-      title: "Maison E-Commerce Store",
-      description: "Модерен онлайн магазин с продуктови колекции и плавен shopping experience.",
+      title: "Maison онлайн магазин",
+      description: "Модерен онлайн магазин с продуктови колекции и плавно пазаруване.",
       img: "/images/portfolio-fashion.svg",
       concept: "ecommerce",
       accent: "cyan",
     },
     {
-      title: "Nova SaaS Dashboard",
-      description: "SaaS интерфейс с workspace, cards, metrics и изчистена продуктова навигация.",
+      title: "Nova софтуерна платформа",
+      description: "Софтуерен интерфейс с работно пространство, показатели и изчистена навигация.",
       img: "/images/portfolio-healthcare.svg",
       concept: "saas",
       accent: "blue",
     },
     {
-      title: "Lume Restaurant Website",
+      title: "Lume ресторантски сайт",
       description: "Елегантен ресторантски сайт с меню, резервации и атмосфера на бранда.",
       img: "/images/portfolio-restaurant.svg",
       concept: "restaurant",
@@ -205,7 +205,7 @@ const sampleReviews: ApprovedReview[] = [
     id: "sample-1",
     name: "Мария Николова",
     company: "Niko Home Studio",
-    role: "Founder",
+    role: "Основател",
     rating: 5,
     message:
       "VM Studio създадоха сайт, който изглежда премиум и работи изключително бързо. Процесът беше ясен, организиран и много професионален.",
@@ -214,7 +214,7 @@ const sampleReviews: ApprovedReview[] = [
     id: "sample-2",
     name: "Георги Димитров",
     company: "Delta Consult",
-    role: "Marketing Director",
+    role: "Маркетинг директор",
     rating: 5,
     message:
       "Получихме модерна дигитална визия и по-добра структура за представяне на услугите ни. Екипът мисли едновременно за дизайн, скорост и реални бизнес резултати.",
@@ -223,7 +223,7 @@ const sampleReviews: ApprovedReview[] = [
     id: "sample-3",
     name: "Елена Петрова",
     company: "Active Zone",
-    role: "Brand Manager",
+    role: "Бранд мениджър",
     rating: 5,
     message:
       "Работата с VM Studio беше много гладка. Новата ни онлайн визия изглежда силна, ясна и напълно съобразена с аудиторията ни.",
@@ -503,18 +503,18 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
   const accent = accentStyles[project.accent];
 
   const navItems = {
-    fitness: ["Home", "Programs", "Coaches"],
-    finance: ["Home", "Features", "Pricing"],
-    interior: ["Home", "Projects", "Studio"],
-    ecommerce: ["Shop", "Drops", "Journal"],
-    saas: ["Overview", "Tasks", "Reports"],
-    restaurant: ["Menu", "Booking", "Events"],
+    fitness: ["Начало", "Програми", "Треньори"],
+    finance: ["Начало", "Функции", "Цени"],
+    interior: ["Начало", "Проекти", "Студио"],
+    ecommerce: ["Магазин", "Колекции", "Журнал"],
+    saas: ["Преглед", "Задачи", "Отчети"],
+    restaurant: ["Меню", "Резервации", "Събития"],
   }[project.concept];
 
   return (
     <div className={`absolute inset-4 overflow-hidden rounded-2xl border bg-[#050914]/92 backdrop-blur-sm ${accent.ring}`}>
-      <div className={`absolute -inset-16 bg-gradient-to-br ${accent.glow} blur-3xl opacity-70`} />
-      <div className="relative z-10 flex h-full flex-col">
+      <div className={`absolute -inset-16 bg-gradient-to-br ${accent.glow} blur-3xl opacity-46`} />
+      <div className="relative z-10 flex h-full flex-col opacity-58 saturate-75 contrast-90">
         <div className="flex h-10 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
           <div className="flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-fuchsia-300/80" />
@@ -532,16 +532,16 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
           <div className="grid flex-1 grid-rows-[1fr_auto] p-5">
             <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-black via-violet-950/70 to-black p-5">
               <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_center,rgba(217,70,239,0.28),transparent_62%)]" />
-              <p className="relative z-10 text-[10px] uppercase tracking-[0.26em] text-fuchsia-200">Strength lab</p>
-              <h3 className="relative z-10 mt-8 max-w-[11rem] text-3xl font-black leading-none text-white">
-                TRAIN WITHOUT LIMITS
+              <p className="relative z-10 text-[9px] uppercase tracking-[0.26em] text-fuchsia-200/70">Силова зона</p>
+              <h3 className="relative z-10 mt-8 max-w-[11rem] text-2xl font-black leading-none text-white/72">
+                ТРЕНИРАЙ БЕЗ ЛИМИТИ
               </h3>
               <button className={`relative z-10 mt-6 rounded-md bg-gradient-to-r ${accent.button} px-4 py-2 text-[10px] font-bold text-white`}>
-                Get started
+                Започни
               </button>
             </div>
             <div className="mt-4 grid grid-cols-3 gap-3">
-              {["Strength", "Cardio", "Yoga"].map((item) => (
+              {["Сила", "Кардио", "Йога"].map((item) => (
                 <div key={item} className="rounded-xl border border-white/10 bg-white/[0.06] p-3 text-center text-[9px] uppercase tracking-wider text-white/70">
                   <div className="mb-2 h-10 rounded-lg bg-fuchsia-300/15" />
                   {item}
@@ -554,12 +554,12 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
         {project.concept === "finance" ? (
           <div className="grid flex-1 grid-cols-[1fr_0.85fr] gap-4 p-5">
             <div className="flex flex-col justify-center">
-              <p className="text-[10px] uppercase tracking-[0.24em] text-blue-200">Finova</p>
-              <h3 className="mt-5 text-3xl font-black leading-tight text-white">
-                Smart finance for <span className="text-blue-400">modern business</span>
+              <p className="text-[9px] uppercase tracking-[0.24em] text-blue-200/70">Finova</p>
+              <h3 className="mt-5 text-2xl font-black leading-tight text-white/72">
+                Умни финанси за <span className="text-blue-400/80">модерен бизнес</span>
               </h3>
               <button className={`mt-6 w-max rounded-md bg-gradient-to-r ${accent.button} px-4 py-2 text-[10px] font-bold text-white`}>
-                Get started free
+                Започни
               </button>
             </div>
             <div className="flex flex-col gap-3">
@@ -577,10 +577,10 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
         {project.concept === "interior" ? (
           <div className="grid flex-1 grid-cols-[1fr_0.9fr] bg-neutral-100 text-black">
             <div className="flex flex-col justify-center p-7">
-              <p className="text-[9px] uppercase tracking-[0.24em] text-black/45">Atelier</p>
-              <h3 className="mt-7 font-serif text-3xl leading-none">Timeless interior design</h3>
-              <p className="mt-4 text-xs text-black/55">Spaces that inspire refined living.</p>
-              <button className="mt-6 w-max rounded-full bg-black px-4 py-2 text-[9px] uppercase text-white">View projects</button>
+              <p className="text-[8px] uppercase tracking-[0.24em] text-black/35">Ателие</p>
+              <h3 className="mt-7 font-serif text-2xl leading-none text-black/70">Вечен интериорен дизайн</h3>
+              <p className="mt-4 text-xs text-black/45">Пространства с усещане за стил.</p>
+              <button className="mt-6 w-max rounded-full bg-black px-4 py-2 text-[9px] uppercase text-white">Проекти</button>
             </div>
             <div className="m-4 rounded-2xl bg-gradient-to-br from-stone-200 via-white to-stone-300 shadow-inner" />
           </div>
@@ -589,8 +589,8 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
         {project.concept === "ecommerce" ? (
           <div className="flex flex-1 flex-col p-5">
             <div className="rounded-2xl border border-cyan-200/20 bg-white/[0.05] p-5">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-cyan-100">Maison drop</p>
-              <h3 className="mt-4 text-2xl font-black text-white">New season essentials</h3>
+              <p className="text-[9px] uppercase tracking-[0.22em] text-cyan-100/70">Maison колекция</p>
+              <h3 className="mt-4 text-xl font-black text-white/72">Нова сезонна селекция</h3>
               <div className="mt-5 grid grid-cols-3 gap-3">
                 {[1, 2, 3].map((item) => (
                   <div key={item} className="h-24 rounded-xl bg-gradient-to-br from-cyan-300/18 to-blue-500/10" />
@@ -613,7 +613,7 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
             </div>
             <div className="grid grid-rows-[0.55fr_1fr] gap-4">
               <div className="rounded-2xl border border-blue-300/20 bg-blue-400/10 p-4 text-white">
-                <p className="text-xs text-white/60">Workspace score</p>
+                <p className="text-[11px] text-white/45">Оценка на работното пространство</p>
                 <strong className="text-3xl">94%</strong>
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -628,11 +628,11 @@ const PortfolioMockup = ({ project }: { project: Project }) => {
         {project.concept === "restaurant" ? (
           <div className="grid flex-1 grid-cols-[1fr_0.85fr] gap-4 p-5">
             <div className="flex flex-col justify-center">
-              <p className="text-[10px] uppercase tracking-[0.24em] text-amber-100">Lume dining</p>
-              <h3 className="mt-5 text-3xl font-black leading-tight text-white">Reserve the evening</h3>
-              <p className="mt-4 text-xs text-white/60">Seasonal tasting menu and private events.</p>
+              <p className="text-[9px] uppercase tracking-[0.24em] text-amber-100/70">Lume ресторант</p>
+              <h3 className="mt-5 text-2xl font-black leading-tight text-white/72">Запази вечерта</h3>
+              <p className="mt-4 text-xs text-white/45">Сезонно меню и частни събития.</p>
               <button className={`mt-6 w-max rounded-full bg-gradient-to-r ${accent.button} px-4 py-2 text-[10px] font-bold text-black`}>
-                Book table
+                Запази маса
               </button>
             </div>
             <div className="grid gap-3">
@@ -808,12 +808,13 @@ const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCar
       <motion.div
         className="absolute inset-0 z-[4] pointer-events-none"
         animate={{
-          opacity: isHovering && !prefersReducedMotion ? 0.92 : 0.62,
+          opacity: isHovering && !prefersReducedMotion ? 0.96 : 0.78,
         }}
         transition={{ duration: 0.35, ease: "easeOut" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(34,211,238,0.16)_38%,rgba(59,130,246,0.08)_52%,transparent_68%)] opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/98 via-black/72 via-[48%] to-black/10" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_0%,rgba(34,211,238,0.10)_38%,rgba(59,130,246,0.05)_52%,transparent_68%)] opacity-65" />
+        <div className="absolute inset-x-0 bottom-0 h-[52%] bg-[radial-gradient(circle_at_20%_100%,rgba(34,211,238,0.18),transparent_48%),radial-gradient(circle_at_90%_100%,rgba(168,85,247,0.15),transparent_50%)]" />
       </motion.div>
       <motion.div
         className="absolute inset-0 z-[6] rounded-3xl border border-cyan-300/40 pointer-events-none"
@@ -826,15 +827,30 @@ const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCar
         }}
         transition={{ duration: 0.32, ease: "easeOut" }}
       />
+      <motion.span
+        className="absolute right-5 top-5 z-10 rounded-full border border-cyan-200/18 bg-black/28 px-3 py-2 text-[0.54rem] font-semibold uppercase tracking-[0.3em] text-cyan-50/78 shadow-[0_12px_34px_rgba(0,0,0,0.34),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md drop-shadow-[0_0_10px_rgba(0,255,255,0.32)] sm:right-7 sm:top-7"
+        animate={{
+          opacity: isHovering && !prefersReducedMotion ? 0.96 : 0.72,
+          y: isHovering && !prefersReducedMotion ? -1 : 0,
+          borderColor: isHovering && !prefersReducedMotion ? "rgba(103,232,249,0.36)" : "rgba(165,243,252,0.18)",
+          boxShadow:
+            isHovering && !prefersReducedMotion
+              ? "0 14px 38px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 22px rgba(34,211,238,0.16)"
+              : "0 12px 34px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.08)",
+        }}
+        transition={{ duration: 0.28, ease: "easeOut" }}
+      >
+        Очаквайте скоро
+      </motion.span>
       <motion.div
-        className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start justify-end px-5 pb-7 text-left sm:px-7 sm:pb-8"
+        className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start justify-end px-5 pb-6 text-left sm:px-7 sm:pb-7"
         initial={false}
         animate={{ y: isHovering && !prefersReducedMotion ? -8 : 0 }}
         transition={{ type: "spring", stiffness: 190, damping: 20 }}
         style={{ transform: "translateZ(44px)" }}
       >
         <motion.div
-          className="max-w-[92%]"
+          className="max-w-[94%] rounded-2xl border border-white/12 bg-black/34 px-4 py-4 shadow-[0_18px_55px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md sm:max-w-[88%] sm:px-5"
           initial={false}
           animate={{
             opacity: 1,
@@ -842,23 +858,14 @@ const PortfolioCard = ({ project, isActive, prefersReducedMotion }: PortfolioCar
           }}
           transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.9)] md:text-3xl">
+          <div className="mb-3 h-px w-16 bg-gradient-to-r from-cyan-300 via-blue-400 to-transparent shadow-[0_0_16px_rgba(34,211,238,0.55)]" />
+          <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_4px_22px_rgba(0,0,0,0.95)] md:text-3xl">
             {project.title}
           </h3>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-white/82 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] md:text-[0.95rem]">
+          <p className="mt-3 max-w-md text-sm font-medium leading-relaxed text-white/88 drop-shadow-[0_3px_16px_rgba(0,0,0,0.95)] md:text-[0.95rem]">
             {project.description}
           </p>
         </motion.div>
-        <motion.span
-          className="mt-4 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-cyan-100/78 drop-shadow-[0_0_12px_rgba(0,255,255,0.55)]"
-          animate={{
-            opacity: isHovering && !prefersReducedMotion ? 0.95 : 0.78,
-            y: isHovering && !prefersReducedMotion ? -1 : 0,
-          }}
-          transition={{ duration: 0.28, ease: "easeOut" }}
-        >
-          Очаквайте скоро
-        </motion.span>
       </motion.div>
     </motion.div>
   );
@@ -1051,6 +1058,8 @@ const App = () => {
   const portfolioSwiperRef = useRef<any>(null);
   const prefersReducedMotion = useReducedMotion();
   const [isMobileViewport, setIsMobileViewport] = useState(false);
+  const contactError = (name: string) => contactState.errors?.[name];
+  const reviewError = (name: string) => reviewState.errors?.[name];
 
   useEffect(() => {
     document.body.style.removeProperty("overflow");
@@ -1740,7 +1749,7 @@ const App = () => {
                   >
                     {[
                       {
-                        title: "AI",
+                        title: "Изкуствен интелект",
                         description: "Интелигентни алгоритми за вашия бизнес.",
                         icon: (
                           <BrainCircuit className="h-16 w-16 text-white" strokeWidth={1.7} />
@@ -1749,7 +1758,7 @@ const App = () => {
                         gradientTo: "to-blue-500",
                       },
                       {
-                        title: "Web Development",
+                        title: "Уеб разработка",
                         description: "Съвременни уеб приложения с висока производителност.",
                         icon: (
                           <Code2 className="h-16 w-16 text-white" strokeWidth={1.7} />
@@ -1758,8 +1767,8 @@ const App = () => {
                         gradientTo: "to-pink-500",
                       },
                       {
-                        title: "Mobile Apps",
-                        description: "iOS и Android native & cross-platform решения.",
+                        title: "Мобилни приложения",
+                        description: "Решения за iOS и Android с надеждна работа на различни устройства.",
                         icon: (
                           <Smartphone className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
@@ -1767,7 +1776,7 @@ const App = () => {
                         gradientTo: "to-lime-500",
                       },
                       {
-                        title: "UI/UX Design",
+                        title: "Дизайн на интерфейси",
                         description: "Интуитивни и визуално впечатляващи интерфейси.",
                         icon: (
                           <Layers3 className="h-16 w-16 text-white" strokeWidth={1.7} />
@@ -1776,7 +1785,7 @@ const App = () => {
                         gradientTo: "to-red-500",
                       },
                       {
-                        title: "Cloud Solutions",
+                        title: "Облачни решения",
                         description: "Облачни инфраструктури и стратегии за деплоймент.",
                         icon: (
                           <CloudCog className="h-16 w-16 text-white" strokeWidth={1.7} />
@@ -1785,8 +1794,8 @@ const App = () => {
                         gradientTo: "to-indigo-500",
                       },
                       {
-                        title: "Digital Marketing",
-                        description: "SEO, SEM, social media и content marketing.",
+                        title: "Дигитален маркетинг",
+                        description: "Оптимизация за търсачки, платена реклама, социални мрежи и съдържание.",
                         icon: (
                           <TrendingUp className="h-16 w-16 text-white" strokeWidth={1.7} />
                         ),
@@ -1845,8 +1854,9 @@ const App = () => {
               {/* Testimonials Section with Form Below */}
               <section
                 id="testimonials"
-                className="relative order-5 py-28 bg-gradient-to-b from-gray-900 via-black to-gray-900 overflow-hidden"
+                className="relative order-5 py-28 bg-black overflow-hidden"
               >
+                <div className="absolute inset-y-0 left-1/2 z-0 w-screen -translate-x-1/2 bg-[radial-gradient(circle_at_18%_16%,rgba(34,211,238,0.14),transparent_32%),radial-gradient(circle_at_82%_58%,rgba(59,130,246,0.13),transparent_34%),linear-gradient(180deg,rgba(17,24,39,0)_0%,rgba(17,24,39,0.82)_18%,rgba(0,0,0,0.96)_52%,rgba(17,24,39,0.74)_82%,rgba(17,24,39,0)_100%)]" />
                 {/* Dynamic hi-tech background */}
                 <div className="absolute inset-0 z-0 opacity-45 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
                   {[...Array(50)].map((_, i) => (
@@ -1891,67 +1901,91 @@ const App = () => {
 
                   {/* Testimonials Slider on Top */}
                   <motion.div
-                    className="overflow-x-hidden overflow-y-visible cursor-grab mb-14 sm:mb-20 py-5"
-                    whileTap={{ cursor: "grabbing" }}
+                    className="mb-14 sm:mb-20 py-5"
+                    variants={testimonialsTrackVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.25 }}
                   >
-                    <motion.div
-                      className="flex gap-4 sm:gap-8 py-8"
-                      drag="x"
-                      dragConstraints={{ left: -1600, right: 0 }}
-                      variants={testimonialsTrackVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, amount: 0.25 }}
+                    {displayedReviews.length > 3 ? (
+                      <div className="mb-3 flex items-center justify-end gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-cyan-100/55">
+                        <span className="h-px w-10 bg-gradient-to-r from-transparent to-cyan-300/70" />
+                        Плъзнете за още
+                      </div>
+                    ) : null}
+                    <Swiper
+                      modules={[Pagination, Autoplay]}
+                      className="testimonials-swiper"
+                      slidesPerView={1.08}
+                      spaceBetween={16}
+                      grabCursor
+                      watchSlidesProgress
+                      loop={displayedReviews.length > 3}
+                      pagination={{ clickable: true }}
+                      autoplay={
+                        displayedReviews.length > 3 && !prefersReducedMotion
+                          ? { delay: 5200, disableOnInteraction: false, pauseOnMouseEnter: true }
+                          : false
+                      }
+                      breakpoints={{
+                        640: { slidesPerView: 1.25, spaceBetween: 20 },
+                        768: { slidesPerView: 2.14, spaceBetween: 24 },
+                        1024: { slidesPerView: 3.12, spaceBetween: 30 },
+                      }}
                     >
                       {displayedReviews.map((testimonial, i) => (
-                        <motion.div
-                          key={testimonial.id}
-                          className="group min-w-[min(82vw,340px)] max-w-sm"
-                          variants={testimonialsRevealVariants}
-                          whileHover={
-                            prefersReducedMotion
-                              ? {}
-                              : {
-                                  y: -10,
-                                  scale: 1.035,
-                                  rotate: i % 2 === 0 ? 1.5 : -1.5,
-                                }
-                          }
-                          transition={{ type: "spring", stiffness: 180, damping: 18 }}
-                        >
+                        <SwiperSlide key={testimonial.id} className="pb-12">
                           <motion.div
-                            className="relative overflow-hidden p-6 sm:p-10 rounded-3xl bg-gray-900/60 border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.25)]"
-                            animate={prefersReducedMotion ? {} : { y: [0, -6, 0] }}
-                            transition={{ repeat: Infinity, duration: 6 + i, ease: "easeInOut" }}
+                            className="group h-full"
+                            variants={testimonialsRevealVariants}
+                            whileHover={
+                              prefersReducedMotion
+                                ? {}
+                                : {
+                                    y: -10,
+                                    scale: 1.04,
+                                    rotateZ: i % 2 === 0 ? 2.4 : -2.4,
+                                    rotateX: 2,
+                                    rotateY: i % 2 === 0 ? -2 : 2,
+                                  }
+                            }
+                            transition={{ type: "spring", stiffness: 180, damping: 18 }}
+                            style={{ transformPerspective: 1000, transformStyle: "preserve-3d" }}
                           >
                             <motion.div
-                              className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                              transition={{ duration: 0.35, ease: "easeOut" }}
-                            />
-                            <motion.div
-                              className="absolute -inset-16 bg-[radial-gradient(circle,rgba(0,255,255,0.2),transparent_62%)] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-300 pointer-events-none"
-                              whileHover={{ scale: 1.05 }}
-                              transition={{ duration: 0.35, ease: "easeOut" }}
-                            />
-                            <motion.div
-                              className="relative z-10"
-                              whileHover={prefersReducedMotion ? {} : { y: -4 }}
-                              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                              className="relative flex min-h-[320px] flex-col justify-between overflow-hidden p-6 sm:p-10 rounded-3xl bg-gray-900/64 border border-cyan-400/40 shadow-[0_0_40px_rgba(0,255,255,0.25)]"
+                              animate={prefersReducedMotion ? {} : { y: [0, -6, 0] }}
+                              transition={{ repeat: Infinity, duration: 6 + i, ease: "easeInOut" }}
                             >
-                              <p className="text-gray-300 mb-5 text-base md:text-lg leading-relaxed">
-                                "{testimonial.message}"
-                              </p>
-                              <div className="text-white font-semibold text-base md:text-lg">
-                                {testimonial.name}
-                              </div>
-                              <div className="text-cyan-400 text-sm md:text-base">
-                                {testimonial.role} · {testimonial.company}
-                              </div>
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                                transition={{ duration: 0.35, ease: "easeOut" }}
+                              />
+                              <motion.div
+                                className="absolute -inset-16 bg-[radial-gradient(circle,rgba(0,255,255,0.2),transparent_62%)] opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-300 pointer-events-none"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.35, ease: "easeOut" }}
+                              />
+                              <motion.div
+                                className="relative z-10"
+                                whileHover={prefersReducedMotion ? {} : { y: -4 }}
+                                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                              >
+                                <p className="text-gray-300 mb-5 text-base md:text-lg leading-relaxed">
+                                  "{testimonial.message}"
+                                </p>
+                                <div className="text-white font-semibold text-base md:text-lg">
+                                  {testimonial.name}
+                                </div>
+                                <div className="text-cyan-400 text-sm md:text-base">
+                                  {testimonial.role} · {testimonial.company}
+                                </div>
+                              </motion.div>
                             </motion.div>
                           </motion.div>
-                        </motion.div>
+                        </SwiperSlide>
                       ))}
-                    </motion.div>
+                    </Swiper>
                   </motion.div>
 
                   {/* Futuristic Comment Form Below */}
@@ -1981,48 +2015,63 @@ const App = () => {
                         { placeholder: "Длъжност / Компания", name: "roleCompany" },
                         { placeholder: "Вашият коментар", name: "message" },
                       ].map(
-                        (field, i) =>
-                          i < 2 ? (
-                            <motion.input
-                              key={i}
-                              name={field.name}
-                              type="text"
-                              placeholder={field.placeholder}
-                              required
-                              variants={sectionRevealVariants}
-                              whileHover={{
-                                scale: 1.02,
-                                boxShadow:
-                                  "0 0 25px rgba(0,255,255,0.5), 0 0 35px rgba(0,150,255,0.4)",
-                              }}
-                              whileFocus={{
-                                scale: 1.015,
-                                boxShadow:
-                                  "0 0 28px rgba(0,255,255,0.55), 0 0 42px rgba(59,130,246,0.35)",
-                              }}
-                              className="px-4 py-3 rounded-2xl bg-gray-900/50 backdrop-blur-md text-white border border-cyan-400/40 focus:border-cyan-400 focus:shadow-[0_0_30px_rgba(0,255,255,0.5)] focus:outline-none transition-all duration-300 text-sm"
-                            />
+                        (field, i) => {
+                          const error = reviewError(field.name);
+
+                          return i < 2 ? (
+                            <motion.div key={field.name} variants={sectionRevealVariants} className="flex flex-col gap-1.5">
+                              <motion.input
+                                name={field.name}
+                                type="text"
+                                placeholder={field.placeholder}
+                                required
+                                aria-invalid={Boolean(error)}
+                                whileHover={{
+                                  scale: 1.02,
+                                  boxShadow:
+                                    "0 0 25px rgba(0,255,255,0.5), 0 0 35px rgba(0,150,255,0.4)",
+                                }}
+                                whileFocus={{
+                                  scale: 1.015,
+                                  boxShadow:
+                                    "0 0 28px rgba(0,255,255,0.55), 0 0 42px rgba(59,130,246,0.35)",
+                                }}
+                                className={`px-4 py-3 rounded-2xl bg-gray-900/50 backdrop-blur-md text-white border focus:outline-none transition-all duration-300 text-sm ${
+                                  error
+                                    ? "border-red-400/80 shadow-[0_0_22px_rgba(248,113,113,0.35)] focus:border-red-300"
+                                    : "border-cyan-400/40 focus:border-cyan-400 focus:shadow-[0_0_30px_rgba(0,255,255,0.5)]"
+                                }`}
+                              />
+                              {error ? <span className="px-1 text-xs text-red-200">{error}</span> : null}
+                            </motion.div>
                           ) : (
-                            <motion.textarea
-                              key={i}
-                              name={field.name}
-                              placeholder={field.placeholder}
-                              required
-                              rows={4}
-                              variants={sectionRevealVariants}
-                              whileHover={{
-                                scale: 1.02,
-                                boxShadow:
-                                  "0 0 25px rgba(0,255,255,0.5), 0 0 35px rgba(0,150,255,0.4)",
-                              }}
-                              whileFocus={{
-                                scale: 1.015,
-                                boxShadow:
-                                  "0 0 28px rgba(0,255,255,0.55), 0 0 42px rgba(59,130,246,0.35)",
-                              }}
-                              className="px-4 py-3 rounded-2xl bg-gray-900/50 backdrop-blur-md text-white border border-cyan-400/40 focus:border-cyan-400 focus:shadow-[0_0_30px_rgba(0,255,255,0.5)] focus:outline-none transition-all duration-300 resize-none text-sm"
-                            />
-                          )
+                            <motion.div key={field.name} variants={sectionRevealVariants} className="flex flex-col gap-1.5">
+                              <motion.textarea
+                                name={field.name}
+                                placeholder={field.placeholder}
+                                required
+                                rows={4}
+                                aria-invalid={Boolean(error)}
+                                whileHover={{
+                                  scale: 1.02,
+                                  boxShadow:
+                                    "0 0 25px rgba(0,255,255,0.5), 0 0 35px rgba(0,150,255,0.4)",
+                                }}
+                                whileFocus={{
+                                  scale: 1.015,
+                                  boxShadow:
+                                    "0 0 28px rgba(0,255,255,0.55), 0 0 42px rgba(59,130,246,0.35)",
+                                }}
+                                className={`px-4 py-3 rounded-2xl bg-gray-900/50 backdrop-blur-md text-white border focus:outline-none transition-all duration-300 resize-none text-sm ${
+                                  error
+                                    ? "border-red-400/80 shadow-[0_0_22px_rgba(248,113,113,0.35)] focus:border-red-300"
+                                    : "border-cyan-400/40 focus:border-cyan-400 focus:shadow-[0_0_30px_rgba(0,255,255,0.5)]"
+                                }`}
+                              />
+                              {error ? <span className="px-1 text-xs text-red-200">{error}</span> : null}
+                            </motion.div>
+                          );
+                        }
                       )}
                       <motion.button
                         type="submit"
@@ -2165,33 +2214,33 @@ const App = () => {
                   >
                     {[
                       {
-                        role: "Lead Developer", exp: "14+ години опит", icon: (
+                        role: "Ръководител проекти", exp: "14+ години опит", icon: (
                           <LayoutDashboard className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
-                        role: "UI/UX Designer", exp: "8+ години опит", icon: (
+                        role: "UX/UI дизайнер", exp: "8+ години опит", icon: (
                           <PenTool className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
-                        role: "Cloud & DevOps", exp: "7+ години опит", icon: (
+                        role: "Специалист облачна инфраструктура", exp: "7+ години опит", icon: (
                           <CloudCog className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
-                        role: "Digital Marketing", exp: "6+ години опит", icon: (
+                        role: "Специалист дигитален маркетинг", exp: "6+ години опит", icon: (
                           <BarChart3 className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       // Новите двама developers
                       {
-                        role: "Frontend Developer", exp: "10+ години опит", icon: (
+                        role: "Фронтенд програмист", exp: "10+ години опит", icon: (
                           <Sparkles className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
                       {
-                        role: "Backend Developer", exp: "10+ години опит", icon: (
+                        role: "Бекенд програмист", exp: "10+ години опит", icon: (
                           <Database className="h-16 w-16 text-cyan-400" strokeWidth={1.6} />
                         )
                       },
@@ -2257,14 +2306,14 @@ const App = () => {
                         },
                         {
                           title: "Дизайн",
-                          description: "UI/UX решения, които са интуитивни, визуално впечатляващи и модерни.",
+                          description: "Решения за потребителски интерфейси, които са интуитивни, визуално впечатляващи и модерни.",
                           icon: (
                             <PenTool className="h-12 w-12 overflow-visible text-purple-400" strokeWidth={1.8} />
                           ),
                         },
                         {
                           title: "Разработка",
-                          description: "Frontend & Backend имплементация с висок стандарт за качество и performance.",
+                          description: "Изграждане на клиентска и сървърна част с висок стандарт за качество и производителност.",
                           icon: (
                             <Code2 className="h-12 w-12 overflow-visible text-green-400" strokeWidth={1.8} />
                           ),
@@ -2416,7 +2465,10 @@ const App = () => {
                       { placeholder: "Вашето име", name: "name", type: "text" },
                       { placeholder: "Имейл", name: "email", type: "email" },
                       { placeholder: "Телефон", name: "phone", type: "tel" },
-                    ].map((field, i) => (
+                    ].map((field, i) => {
+                      const error = contactError(field.name);
+
+                      return (
                       <motion.div
                         key={i}
                         className="relative"
@@ -2424,28 +2476,30 @@ const App = () => {
                         whileHover={{ scale: 1.02 }}
                         transition={{ type: "spring", stiffness: 200, damping: 15 }}
                       >
-                        {/* Лейбълът */}
-                        <motion.label
-                          className="absolute left-4 top-3 text-gray-400 pointer-events-none transition-all"
-                          initial={{ y: 0 }}
-                          whileHover={{ y: -5, color: "#00ffff" }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {field.placeholder}
-                        </motion.label>
                         {/* Полето */}
                         <motion.input
                           type={field.type}
                           name={field.name}
                           required
+                          placeholder=" "
+                          aria-invalid={Boolean(error)}
                           whileFocus={{
                             scale: 1.01,
                             boxShadow: "0 0 22px rgba(0,255,255,0.45)",
                           }}
-                          className="w-full p-4 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-cyan-400 hover:shadow-[0_0_15px_#00ffff] transition-all duration-300"
+                          className={`peer w-full rounded-lg bg-gray-700/50 border px-4 pb-3 pt-5 text-white placeholder-transparent focus:outline-none focus:ring-2 hover:shadow-[0_0_15px_#00ffff] transition-all duration-300 ${
+                            error
+                              ? "border-red-400/80 focus:ring-red-300 shadow-[0_0_20px_rgba(248,113,113,0.28)]"
+                              : "border-gray-600 focus:ring-cyan-400"
+                          }`}
                         />
+                        <label className="pointer-events-none absolute left-4 top-1.5 text-xs text-cyan-200 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-cyan-300">
+                          {field.placeholder}
+                        </label>
+                        {error ? <p className="mt-2 px-1 text-xs text-red-200">{error}</p> : null}
                       </motion.div>
-                    ))}
+                      );
+                    })}
 
                     {/* Съобщение */}
                     <motion.div
@@ -2453,25 +2507,28 @@ const App = () => {
                       variants={sectionRevealVariants}
                       whileHover={{ scale: 1.02 }}
                     >
-                      <motion.label
-                        className="absolute left-4 top-3 text-gray-400 pointer-events-none transition-all"
-                        initial={{ y: 0 }}
-                        whileHover={{ y: -5, color: "#00ffff" }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        Съобщение
-                      </motion.label>
                       <motion.textarea
                         name="message"
                         required
                         placeholder=" "
+                        aria-invalid={Boolean(contactError("message"))}
                         whileFocus={{
                           scale: 1.01,
                           boxShadow: "0 0 22px rgba(0,255,255,0.45)",
                         }}
-                        className="w-full p-4 rounded-lg bg-gray-700/50 border border-gray-600 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-cyan-400 hover:shadow-[0_0_15px_#00ffff] transition-all duration-300 resize-none"
+                        className={`peer w-full rounded-lg bg-gray-700/50 border px-4 pb-3 pt-5 text-white placeholder-transparent focus:outline-none focus:ring-2 hover:shadow-[0_0_15px_#00ffff] transition-all duration-300 resize-none ${
+                          contactError("message")
+                            ? "border-red-400/80 focus:ring-red-300 shadow-[0_0_20px_rgba(248,113,113,0.28)]"
+                            : "border-gray-600 focus:ring-cyan-400"
+                        }`}
                         rows={4}
                       ></motion.textarea>
+                      <label className="pointer-events-none absolute left-4 top-1.5 text-xs text-cyan-200 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-cyan-300">
+                        Съобщение
+                      </label>
+                      {contactError("message") ? (
+                        <p className="mt-2 px-1 text-xs text-red-200">{contactError("message")}</p>
+                      ) : null}
                     </motion.div>
 
                     {/* Бутон */}
@@ -2549,9 +2606,9 @@ const App = () => {
                     transition={{ duration: 1 }}
                   >
                     <span className="absolute left-0 top-0 w-full text-cyan-300 opacity-60 animate-pulse">
-                      © {new Date().getFullYear()} VM Studio – All Rights Reserved
+                      © {new Date().getFullYear()} VM Studio – Всички права запазени
                     </span>
-                    © {new Date().getFullYear()} VM Studio – All Rights Reserved
+                    © {new Date().getFullYear()} VM Studio – Всички права запазени
                   </motion.p>
 
                   <motion.p
@@ -2560,7 +2617,7 @@ const App = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 1 }}
                   >
-                    ⚡ Developed by <span className="text-white">VM Studio</span>
+                    ⚡ Разработено от <span className="text-white">VM Studio</span>
                   </motion.p>
 
                   <motion.p
@@ -2569,7 +2626,7 @@ const App = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.7, duration: 1 }}
                   >
-                    Empowering Digital Futures ✨
+                    Създаваме дигиталното бъдеще ✨
                   </motion.p>
                 </div>
 

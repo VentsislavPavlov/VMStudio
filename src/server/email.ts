@@ -25,11 +25,15 @@ export const sendEmail = async ({
     throw new Error("CONTACT_EMAIL must be configured.");
   }
 
-  await getResend().emails.send({
+  const { error } = await getResend().emails.send({
     from: companyEmail,
     to: companyEmail,
     replyTo,
     subject,
     html,
   });
+
+  if (error) {
+    throw new Error(`Resend email failed: ${error.message}`);
+  }
 };

@@ -43,6 +43,51 @@
   box-shadow: 0 0 12px #00ffff;
 }
 
+.testimonials-swiper {
+  overflow: visible;
+  padding: 2rem 0 0.25rem;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+  overflow: visible;
+}
+
+.testimonials-swiper .swiper-slide {
+  height: auto;
+  opacity: 0.52;
+  transition: opacity 360ms ease, filter 360ms ease;
+  filter: saturate(0.82) brightness(0.82);
+}
+
+.testimonials-swiper .swiper-slide-visible,
+.testimonials-swiper .swiper-slide-active {
+  opacity: 1;
+  filter: saturate(1) brightness(1);
+}
+
+.testimonials-swiper .swiper-pagination {
+  bottom: 0 !important;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 7px;
+  background: #67e8f9;
+  opacity: 0.34;
+  transition: width 280ms ease, opacity 280ms ease, box-shadow 280ms ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  width: 30px;
+  border-radius: 9999px;
+  opacity: 1;
+  box-shadow: 0 0 14px rgba(103, 232, 249, 0.85);
+}
+
 html,
 body {
   max-width: 100%;
@@ -83,6 +128,18 @@ body::-webkit-scrollbar-button {
 body {
   margin: 0;
   overflow-y: clip;
+}
+
+#contact input:-webkit-autofill,
+#contact input:-webkit-autofill:hover,
+#contact input:-webkit-autofill:focus,
+#testimonials input:-webkit-autofill,
+#testimonials input:-webkit-autofill:hover,
+#testimonials input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  box-shadow: 0 0 0 1000px rgba(31, 41, 55, 0.88) inset !important;
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 .portfolio-prev,

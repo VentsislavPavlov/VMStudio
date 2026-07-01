@@ -3,7 +3,7 @@ import "../src/index.css";
 import "swiper/css/bundle";
 
 export const metadata: Metadata = {
-  title: "VM Studio - Web & Marketing",
+  title: "VM Studio - Уеб решения и маркетинг",
 };
 
 export default function RootLayout({
