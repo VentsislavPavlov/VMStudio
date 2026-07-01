@@ -1854,11 +1854,11 @@ const App = () => {
               {/* Testimonials Section with Form Below */}
               <section
                 id="testimonials"
-                className="relative order-5 py-28 bg-black overflow-hidden"
+                className="relative isolate order-5 py-28 bg-black overflow-visible"
               >
-                <div className="absolute inset-y-0 left-1/2 z-0 w-screen -translate-x-1/2 bg-[radial-gradient(circle_at_18%_16%,rgba(34,211,238,0.14),transparent_32%),radial-gradient(circle_at_82%_58%,rgba(59,130,246,0.13),transparent_34%),linear-gradient(180deg,rgba(17,24,39,0)_0%,rgba(17,24,39,0.82)_18%,rgba(0,0,0,0.96)_52%,rgba(17,24,39,0.74)_82%,rgba(17,24,39,0)_100%)]" />
+                <div className="pointer-events-none absolute -inset-y-24 left-1/2 z-0 w-screen -translate-x-1/2 bg-[radial-gradient(circle_at_18%_20%,rgba(34,211,238,0.12),transparent_34%),radial-gradient(circle_at_82%_58%,rgba(59,130,246,0.11),transparent_36%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(17,24,39,0.42)_20%,rgba(0,0,0,0.84)_50%,rgba(17,24,39,0.38)_80%,rgba(0,0,0,0)_100%)]" />
                 {/* Dynamic hi-tech background */}
-                <div className="absolute inset-0 z-0 opacity-45 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+                <div className="pointer-events-none absolute -inset-y-16 inset-x-0 z-0 opacity-35 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
                   {[...Array(50)].map((_, i) => (
                     <motion.div
                       key={i}
@@ -1934,7 +1934,7 @@ const App = () => {
                       }}
                     >
                       {displayedReviews.map((testimonial, i) => (
-                        <SwiperSlide key={testimonial.id} className="pb-12">
+                        <SwiperSlide key={testimonial.id} className="py-8">
                           <motion.div
                             className="group h-full"
                             variants={testimonialsRevealVariants}
